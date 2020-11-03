@@ -18,11 +18,11 @@ W333_F = W333_F*convertunit;
 W333_E0 = -.69946699E+03;
 mu_metW = (W333_F+W333_E0)/W333_numunits;
 
-WO3222_numunits = 64;
+WO3222_numunits = 16;
 WO3222_F = readmatrix('thermalpropsWO3222.txt');
 WO3222_F = WO3222_F(:,2);
 WO3222_F = WO3222_F*convertunit;
-WO3222_E0 = -.23249633E+04;
+WO3222_E0 = -.58083580E+03;
 mu_WO3 = (WO3222_F+WO3222_E0)/WO3222_numunits;
 
 Wcutoff = (mu_WO3-mu_metW)/3;
@@ -199,7 +199,7 @@ Ba1Sc1O4W112_config = 7.118E-6;
 Ba1Sc1O4W112_F = readmatrix('thermalpropsBa1Sc1O4-W112.txt');
 Ba1Sc1O4W112_F = Ba1Sc1O4W112_F(:,2);
 Ba1Sc1O4W112_F = Ba1Sc1O4W112_F*convertunit;
-Ba1Sc1O4W112_E0 = -.10627351E+04;
+Ba1Sc1O4W112_E0 = -.10629497E+04;
 Ba1Sc1O4W112_F = Ba1Sc1O4W112_F+Ba1Sc1O4W112_E0;
 
 Ba2Sc2O4W112_area = 98.533;
@@ -230,7 +230,7 @@ Ba2Sc2O6W112_F = Ba2Sc2O6W112_F+Ba2Sc2O6W112_E0;
 %%%%%%% Plotting %%%%%%%
 
 
-for i = 201
+for i = 146
     
         for j = 1:length(mu_O)
             
@@ -338,44 +338,44 @@ for i = 201
         %P is plot, L is label
         figure(i);
         hold on
-%         P1 = plot(mu_O,Ba4O8W001_gamma,'-.r','LineWidth',4);
-%         L1 = 'Ba_{0.50}O-top/W(0 0 1)';
-%         hold on
-%         P2 = plot(mu_O,Ba2O8W110_gamma,'-.b','LineWidth',4);
-%         L2 = 'Ba_{0.25}O-tri/W(1 1 0)';
-%         hold on
-%         P3 = plot(mu_O,Ba2O4W112_2x2_gamma,'-.g','LineWidth',4);
-%         L3 = 'Ba_{0.50}O-top/W(1 1 2)';
-%         hold on
-%         P4 = plot(mu_O,O8W001_gamma,':r','LineWidth',4);
-%         L4 = 'O-top/W(0 0 1)';
-%         hold on
-%         P5 = plot(mu_O,O8W110_gamma,':b','LineWidth',4);
-%         L5 = 'O-tri/W(1 1 0)';
-%         hold on
-%         P6 = plot(mu_O,O4W112_gamma,':g','LineWidth',4);
-%         L6 = 'O-top/W(1 1 2)';
-%         hold on
-%         P7 = yline(W001surfpert_gamma(i,:), 'r', 'LineWidth',4);
-%         L7 = 'Bare W(0 0 1)';
-%         hold on
-%         P8 = yline(W110_gamma(i,:), 'b', 'LineWidth',4);
-%         L8 = 'Bare W(1 1 0)';
-%         hold on
-%         P9 = yline(W112_gamma(i,:), 'g', 'LineWidth',4);
-%         L9 = 'Bare W(1 1 2)';
-%         hold on
-%         P10 = plot(mu_O,Ba1Sc1O4W112_gamma,':g','LineWidth',2);
-%         L10 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 2)';
-%         hold on
-%         P11 = plot(mu_O,Ba2Sc2O4W112_gamma,'-+g','LineWidth',2);
-%         L11 = 'Ba_{0.5}Sc_{0.5}O-top/W(1 1 2)';
-%         hold on
-%         P12 = plot(mu_O,Ba2Sc2O8W001_gamma,'-<r','LineWidth',1);
-%         L12 = 'Ba_{0.25}Sc_{0.25}O-top/W(0 0 1)';
-%         hold on
-%         P13 = plot(mu_O,Ba2Sc2O8W110_gamma,'-<b','LineWidth',2);
-%         L13 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 0)';
+        P1 = plot(mu_O,Ba4O8W001_gamma,'-.r','LineWidth',4);
+        L1 = 'Ba_{0.50}O-top/W(0 0 1)';
+        hold on
+        P2 = plot(mu_O,Ba2O8W110_gamma,'-.b','LineWidth',4);
+        L2 = 'Ba_{0.25}O-tri/W(1 1 0)';
+        hold on
+        P3 = plot(mu_O,Ba2O4W112_2x2_gamma,'-.g','LineWidth',4);
+        L3 = 'Ba_{0.50}O-top/W(1 1 2)';
+        hold on
+        P4 = plot(mu_O,O8W001_gamma,':r','LineWidth',4);
+        L4 = 'O-top/W(0 0 1)';
+        hold on
+        P5 = plot(mu_O,O8W110_gamma,':b','LineWidth',4);
+        L5 = 'O-tri/W(1 1 0)';
+        hold on
+        P6 = plot(mu_O,O4W112_gamma,':g','LineWidth',4);
+        L6 = 'O-top/W(1 1 2)';
+        hold on
+        P7 = yline(W001surfpert_gamma(i,:), 'r', 'LineWidth',4);
+        L7 = 'Bare W(0 0 1)';
+        hold on
+        P8 = yline(W110_gamma(i,:), 'b', 'LineWidth',4);
+        L8 = 'Bare W(1 1 0)';
+        hold on
+        P9 = yline(W112_gamma(i,:), 'g', 'LineWidth',4);
+        L9 = 'Bare W(1 1 2)';
+        hold on
+        P10 = plot(mu_O,Ba2Sc2O8W001_gamma,'-<r','LineWidth',4);
+        L10 = 'Ba_{0.25}Sc_{0.25}O-top/W(0 0 1)';
+        hold on
+        P11 = plot(mu_O,Ba2Sc2O8W110_gamma,'-<b','LineWidth',4);
+        L11 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 0)';
+        hold on
+        P12 = plot(mu_O,Ba1Sc1O4W112_gamma,'-<g','LineWidth',4);
+        L12 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 2)';
+        hold on
+%         P13 = plot(mu_O,Ba2Sc2O4W112_gamma,'-+g','LineWidth',2);
+%         L13 = 'Ba_{0.5}Sc_{0.5}O-top/W(1 1 2)';
 %         hold on
 %         P14 = plot(mu_O,Ba2Sc2O6W112_gamma,'-sg','LineWidth',2);
 %         L14 = '(BaSc)_{1/3} O-top/W(1 1 2)';
@@ -385,17 +385,17 @@ for i = 201
             'LineWidth', 3, 'LineStyle','-');
 %         text([Wcutoff(i,:) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
 %         hold on
-%         text([Wcutoff(i,:) - 0.2], 0.05, 'W','fontsize', 28, 'Color', 'c');
+%         text([Wcutoff(i,:) - 0.3], 0.05, 'W','fontsize', 28, 'Color', 'c');
 %         hold on
-        
+%         
         line([Bacutoff(i,:) Bacutoff(i,:)], [-10 0.7],'Color','m', ...
             'LineWidth', 3, 'LineStyle','-');
 %         text([Bacutoff(i,:) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
 %         hold on
-%         text([Bacutoff(i,:) - 0.2], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
+%         text([Bacutoff(i,:) - 0.3], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
 %         
-%          line([Sccutoff(i,:) Sccutoff(i,:)], [-10 0.7],'Color','k', ...
-%              'LineWidth', 3, 'LineStyle','-');
+         line([Sccutoff(i,:) Sccutoff(i,:)], [-10 0.7],'Color','k', ...
+             'LineWidth', 3, 'LineStyle','-');
 %         text([Sccutoff(i,:) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
 %         hold on
 %         text([Sccutoff(i,:) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
@@ -404,23 +404,23 @@ for i = 201
         hold off;
         set(gca,'FontSize',32);
         xlabel({'\mu_O (eV)'},'fontsize', 32);
-        ylabel({'Surface Energy (eV/ang^2)'},'fontsize', 32);
+        ylabel({'Surface Energy (eV/Ang.^2)'},'fontsize', 32);
         axis([-12 -6.5 0 0.6])
         ax = gca;
         ax.LineWidth = 4;
         %axes('YColor','none');
         box on;
         %grid on;
-%         legend([P1; P2; P3; P4; P5; P6; P7; P8; P9], L1, L2, L3, L4, L5, L6, ...
-%             L7, L8, L9, 'fontsize', 18, 'Location','northoutside','NumColumns',3);
-%         %legend boxon;
+        legend([P1; P2; P3; P4; P5; P6; P7; P8; P9; P10; P11; P12], L1, L2, L3, L4, L5, L6, ...
+            L7, L8, L9, L10, L11, L12, 'fontsize', 18, 'Location','northeast','NumColumns',4);
+        legend boxon;
         txt = {['T = ',num2str(Temp(i,:)),' K']};
         text(-11.85,0.05,txt,'fontsize', 35);
-        set(gcf, 'Position',  [0, 0, 1000, 588]);
-        saveas(gcf,['justverticals_t',num2str(Temp(i,:)),'.png']);
-        W001surfpert_gamma(i)
-        W110_gamma(i)
-        W112_gamma(i)
+        set(gcf, 'Position',  [0, 0, 1500, 800]);
+        saveas(gcf,['gensurfpaper_t',num2str(Temp(i,:)),'.png']);
+%         W001surfpert_gamma(i)
+%         W110_gamma(i)
+%         W112_gamma(i)
         
 end
 
