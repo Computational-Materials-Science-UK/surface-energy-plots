@@ -113,6 +113,18 @@ Ba2Sc2O8W001_F = Ba2Sc2O8W001_F*convertunit;
 Ba2Sc2O8W001_E0 = -.75521094E+03;
 Ba2Sc2O8W001_F = Ba2Sc2O8W001_F+Ba2Sc2O8W001_E0;
 
+Ba2O8W001_area = 80.5; 
+Ba2O8W001_Watoms = 52;
+Ba2O8W001_Baatoms = 2;
+Ba2O8W001_Oatoms = 8;
+Ba2O8W001_config = 6.67E-6;
+Ba2O8W001_F = readmatrix('thermalpropsBa2O8-W001.txt');
+Ba2O8W001_F = Ba2O8W001_F(:,2);
+Ba2O8W001_F = Ba2O8W001_F*convertunit;
+Ba2O8W001_E0 = -.73520456E+03;
+Ba2O8W001_F = Ba2O8W001_F+Ba2O8W001_E0;
+
+
 %%%%%%% (110) %%%%%%%
 
 W110_area = 56.88; 
@@ -207,11 +219,11 @@ Ba2Sc2O4W112_Watoms = 76;
 Ba2Sc2O4W112_Baatoms = 4;
 Ba2Sc2O4W112_Oatoms = 8;
 Ba2Sc2O4W112_Scatoms = 4;
-Ba2Sc2O4W112_config = 4.745E-6;
+Ba2Sc2O4W112_config = 0;
 Ba2Sc2O4W112_F = readmatrix('thermalpropsBa2Sc2O4-W112.txt');
 Ba2Sc2O4W112_F = Ba2Sc2O4W112_F(:,2);
 Ba2Sc2O4W112_F = Ba2Sc2O4W112_F*convertunit;
-Ba2Sc2O4W112_E0 = -.10804814E+04;
+Ba2Sc2O4W112_E0 = -.10807918E+04;
 Ba2Sc2O4W112_F = Ba2Sc2O4W112_F+Ba2Sc2O4W112_E0;
 
 Ba2Sc2O6W112_area = 147.7998;
@@ -226,11 +238,32 @@ Ba2Sc2O6W112_F = Ba2Sc2O6W112_F*convertunit;
 Ba2Sc2O6W112_E0 = -.16071218E+04;
 Ba2Sc2O6W112_F = Ba2Sc2O6W112_F+Ba2Sc2O6W112_E0;
 
+Ba2Sc2O6halfdecW112_area = 147.7998/2;
+Ba2Sc2O6halfdecW112_Watoms = 72;
+Ba2Sc2O6halfdecW112_Baatoms = 2;
+Ba2Sc2O6halfdecW112_Oatoms = 6;
+Ba2Sc2O6halfdecW112_Scatoms = 2;
+Ba2Sc2O6halfdecW112_config = 7.52E-6/2;
+Ba2Sc2O6halfdecW112_F = readmatrix('thermalpropsBa2Sc2O6_dec-W112.txt');
+Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F(:,2);
+Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F*convertunit;
+Ba2Sc2O6halfdecW112_E0 = -.98208329E+03;
+Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F+Ba2Sc2O6halfdecW112_E0;
+
+Ba2Sc2O6halfbareW112_area = 147.7998; 
+Ba2Sc2O6halfbareW112_Watoms = 66;
+Ba2Sc2O6halfbareW112_F = readmatrix('thermalpropsBa2Sc2O6_bare-W112.txt');
+Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F(:,2);
+Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F*convertunit;
+Ba2Sc2O6halfbareW112_E0 = -.82364685E+03;
+Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F+Ba2Sc2O6halfbareW112_E0;
+Ba2Sc2O6halfbareW112_gamma = (Ba2Sc2O6halfbareW112_F-Ba2Sc2O6halfbareW112_Watoms*mu_metW)/...
+    Ba2Sc2O6halfbareW112_area;
 
 %%%%%%% Plotting %%%%%%%
 
 
-for i = 146
+for i = 1
     
         for j = 1:length(mu_O)
             
@@ -261,7 +294,11 @@ for i = 146
                 Ba2Sc2O8W001_area+(Temp(i)*Ba2Sc2O8W001_config));
             
             O8W001_gamma(j,:) = (O8W001_F(i,:)-(O8W001_Watoms*mu_W(j,:)...
-                +O8W001_Oatoms*mu_O(j,:)))/O8W001_area;                     
+                +O8W001_Oatoms*mu_O(j,:)))/O8W001_area;  
+            
+            Ba2O8W001_gamma(j,:) = ((Ba2O8W001_F(i,:)-(Ba2O8W001_Watoms*mu_W(j,:)...
+                +Ba2O8W001_Baatoms*mu_Ba(j,:)+Ba2O8W001_Oatoms*mu_O(j,:)))/Ba2O8W001_area)+(Temp(i)*Ba2O8W001_config);
+           
         end
         
         for k = 1:length(mu_O)
@@ -332,7 +369,12 @@ for i = 146
             Ba2Sc2O6W112_gamma(n,:) = ((Ba2Sc2O6W112_F(i,:)-(Ba2Sc2O6W112_Watoms*mu_W(n,:)...
                 +Ba2Sc2O6W112_Baatoms*mu_Ba(n,:)+Ba2Sc2O6W112_Scatoms*mu_Sc(n,:)+...
                 Ba2Sc2O6W112_Oatoms*mu_O(n,:)))/Ba2Sc2O6W112_area)+(Temp(i)*Ba2Sc2O6W112_config);
-                     
+            
+            Ba2Sc2O6halfdecW112_gamma(n,:) = (((Ba2Sc2O6halfdecW112_F(i,:)-(Ba2Sc2O6halfdecW112_Watoms*mu_W(n,:)...
+                +Ba2Sc2O6halfdecW112_Baatoms*mu_Ba(n,:)+Ba2Sc2O6halfdecW112_Scatoms*mu_Sc(n,:)+...
+                Ba2Sc2O6halfdecW112_Oatoms*mu_O(n,:)))/Ba2Sc2O6halfdecW112_area)+(Temp(i)*Ba2Sc2O6halfdecW112_config))...
+                -Ba2Sc2O6halfbareW112_gamma(i);
+                  
         end
         
         %P is plot, L is label
@@ -365,44 +407,50 @@ for i = 146
         P9 = yline(W112_gamma(i,:), 'g', 'LineWidth',4);
         L9 = 'Bare W(1 1 2)';
         hold on
-        P10 = plot(mu_O,Ba2Sc2O8W001_gamma,'-<r','LineWidth',4);
+        P10 = plot(mu_O,Ba2Sc2O8W001_gamma,'-^r','LineWidth',2);
         L10 = 'Ba_{0.25}Sc_{0.25}O-top/W(0 0 1)';
         hold on
-        P11 = plot(mu_O,Ba2Sc2O8W110_gamma,'-<b','LineWidth',4);
+        P11 = plot(mu_O,Ba2Sc2O8W110_gamma,'-^b','LineWidth',2);
         L11 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 0)';
         hold on
-        P12 = plot(mu_O,Ba1Sc1O4W112_gamma,'-<g','LineWidth',4);
+        P12 = plot(mu_O,Ba1Sc1O4W112_gamma,'-^g','LineWidth',2);
         L12 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 2)';
         hold on
-%         P13 = plot(mu_O,Ba2Sc2O4W112_gamma,'-+g','LineWidth',2);
-%         L13 = 'Ba_{0.5}Sc_{0.5}O-top/W(1 1 2)';
-%         hold on
-%         P14 = plot(mu_O,Ba2Sc2O6W112_gamma,'-sg','LineWidth',2);
-%         L14 = '(BaSc)_{1/3} O-top/W(1 1 2)';
-%         hold on
+        P13 = plot(mu_O,Ba2Sc2O4W112_gamma,':+g','LineWidth',2);
+        L13 = 'Ba_{0.5}Sc_{0.5}O-top/W(1 1 2)';
+        hold on
+        P14 = plot(mu_O,Ba2Sc2O6W112_gamma,'-sg','LineWidth',2);
+        L14 = '(BaSc)_{1/3} O-top/W(1 1 2) symmetric/wrong';
+        hold on
+        P15 = plot(mu_O,Ba2Sc2O6halfdecW112_gamma,'--g','LineWidth',2.85);
+        L15 = '(BaSc)_{1/3} O-top/W(1 1 2)';
+        hold on
+        P16 = plot(mu_O,Ba2O8W001_gamma,'--r','LineWidth',2.85);
+        L16 = 'Ba_{0.25}O-top/W(0 0 1)';
+        hold on
 %         
         line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
-            'LineWidth', 3, 'LineStyle','-');
+            'LineWidth', 4, 'LineStyle','-');
 %         text([Wcutoff(i,:) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
 %         hold on
 %         text([Wcutoff(i,:) - 0.3], 0.05, 'W','fontsize', 28, 'Color', 'c');
 %         hold on
 %         
         line([Bacutoff(i,:) Bacutoff(i,:)], [-10 0.7],'Color','m', ...
-            'LineWidth', 3, 'LineStyle','-');
+            'LineWidth', 4, 'LineStyle','-');
 %         text([Bacutoff(i,:) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
 %         hold on
 %         text([Bacutoff(i,:) - 0.3], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
 %         
          line([Sccutoff(i,:) Sccutoff(i,:)], [-10 0.7],'Color','k', ...
-             'LineWidth', 3, 'LineStyle','-');
+             'LineWidth', 4, 'LineStyle','-');
 %         text([Sccutoff(i,:) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
 %         hold on
 %         text([Sccutoff(i,:) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
 %         
        
         hold off;
-        set(gca,'FontSize',32);
+        set(gca,'FontSize',28,'FontName','Tahoma');
         xlabel({'\mu_O (eV)'},'fontsize', 32);
         ylabel({'Surface Energy (eV/Ang.^2)'},'fontsize', 32);
         axis([-12 -6.5 0 0.6])
@@ -411,61 +459,15 @@ for i = 146
         %axes('YColor','none');
         box on;
         %grid on;
-        legend([P1; P2; P3; P4; P5; P6; P7; P8; P9; P10; P11; P12], L1, L2, L3, L4, L5, L6, ...
-            L7, L8, L9, L10, L11, L12, 'fontsize', 18, 'Location','northeast','NumColumns',4);
+        legend([P1; P2; P3; P4; P5; P6; P7; P8; P9; P10; P11; P12; P13; P15; P16], L1, L2, L3, L4, L5, L6, ...
+            L7, L8, L9, L10, L11, L12, L13, L15, L16, 'fontsize', 18, 'Location','north','NumColumns',5);
         legend boxon;
         txt = {['T = ',num2str(Temp(i,:)),' K']};
-        text(-11.85,0.05,txt,'fontsize', 35);
+        text(-7.5,0.05,txt,'fontsize', 35);
         set(gcf, 'Position',  [0, 0, 1500, 800]);
-        saveas(gcf,['gensurfpaper_t',num2str(Temp(i,:)),'.png']);
-%         W001surfpert_gamma(i)
-%         W110_gamma(i)
-%         W112_gamma(i)
-        
+        saveas(gcf,['cathodessurfpaper_t',num2str(Temp(i,:)),'.png']);
+        W001surfpert_gamma(i)
+        W110_gamma(i)
+        W112_gamma(i)
+      
 end
-
-
-%{
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-aa = 101;
-T = linspace(0,2000,aa); %Torr
-T = transpose(T);
-cc = 1001;
-P_torr = logspace(-50,0,cc);
-P_torr = transpose(P_torr);
-for bb = 1:aa
-    H(bb) = -8E-12*T(bb)^3+5E-08*T(bb)^2+0.0003*T(bb)-0.0889;
-    TxS(bb)=3E-07*T(bb)^2+0.0023*T(bb)-0.0596;
-end
-H = transpose(H);
-TxS = transpose(TxS);
-
-%
-hO = 1.36; %eV
-P_MPa = P_torr*0.000133322; %MPa
-P0_MPa = 0.1; %MPa
-P0_torr = 750.062; %torr
-T_r = 298.15; %K
-E_O2_VASP = -9.6887; %eV
-k_B = 8.617E-5; %eV/K
-
-
-for ii = 1:aa
-    for kk = 1:cc
-        plotmu_O(ii,kk) = (E_O2_VASP+hO+H(ii)-TxS(ii)...
-            +k_B*T(ii)*log(P_MPa(kk)/P0_MPa))/2;
-    end
-end
-
-
-figure
-contourf(P_torr,T,plotmu_O,100,'LineColor','none')
-colorbar
-xlabel({'O2 Partial Pressure (Torr)'},'fontsize', 32);
-ylabel({'Temperature (K)'},'fontsize', 32);
-set(gca,'XScale','log','FontSize',28);
-ax = gca;
-ax.LineWidth = 3;
-box on
-%}
-
