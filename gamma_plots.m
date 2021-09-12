@@ -3,20 +3,22 @@ close all;
 
 
 
-Temp = linspace(0,2000,201);
+Temp = linspace(0,2000,201); %Create a temperature array of 201 units from 0 K to 2000 K in increments of 10 K- Notably this is (and must be) the same increment as in the Thermal Props files
 Temp = transpose(Temp);
-convertunit = (1/6.022E23)*1000*(1/1.60218E-19);
+convertunit = (1/6.022E23)*1000*(1/1.60218E-19); %Unit conversion conversion from Kilojoules to eV
 mu_O = linspace(-12,-6.5,111);
 mu_O = transpose(mu_O);
 
 %%%%%%% bulk %%%%%%%
 
-W333_numunits = 54;
-W333_F = readmatrix('thermalpropsW333.txt');
-W333_F = W333_F(:,2);
-W333_F = W333_F*convertunit;
-W333_E0 = -.69946699E+03;
+W333_numunits = 54;  %Number of molecules per supercell
+W333_F = readmatrix('thermalpropsW333.txt');  %Source File
+W333_F = W333_F(:,2);  %Look at the second column of the input file
+W333_F = W333_F*convertunit; %convert to Kilojoules
+W333_E0 = -.69946699E+03; 
 mu_metW = (W333_F+W333_E0)/W333_numunits;
+
+[W333_F, mu_metW]=ReadFromFile(54, 'thermalpropsW333.txt', -.69946699E+03); %Custom Function test case.  If it works I'll replace all readins with it
 
 WO3222_numunits = 16;
 WO3222_F = readmatrix('thermalpropsWO3222.txt');
@@ -58,6 +60,12 @@ Sc2O3111_E0 = -.36907745E+03;
 mu_Sc2O3 = (Sc2O3111_F+Sc2O3111_E0)/Sc2O3111_numunits;
 
 Sccutoff = (mu_Sc2O3-2*mu_metSc)/3;
+
+[Al222_F, mu_metAl]=ReadFromFile(32, 'thermalpropsAl222.txt', -.11970109E+03); %Bulk aluminum properties
+
+[Al4O6_F, mu_Al4O6]=ReadFromFile(16, 'thermalpropsAl4O6.txt', -.59797974E+03); %Bulk alumina properties
+
+Alcutoff = (mu_Al4O6-2*mu_metAl)/3; %Setting the Al/Alumina cutoff
 
 %%%%%%% (001) %%%%%%%
 
@@ -470,4 +478,12 @@ for i = 1
         W110_gamma(i)
         W112_gamma(i)
       
+end
+
+function [F, mu] = ReadFromFile(numunits, sourcefile, E0)
+    %Inputs: numunits is the number of atoms in the supercell (int), sourcefile is the name of the input file (string), E0 is the base energy of the cell
+    F = readmatrix(sourcefile);  %Source File
+    F = F(:,2);  %Look at the second column of the input file
+    F = F*convertunit;  %Convert from kJ to eV
+    mu = (F+E0)/numunits;  %find the chemical reactivity
 end
