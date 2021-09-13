@@ -342,8 +342,8 @@ Ba2O4Sc4W112_E0 = -.55767079E+03;
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
 Ba2O4Sc4W112_WF = 1.92933196;
 
-ii=1;
-lowerboundshapegammas = zeros(ii,4);
+%ii=1;
+%lowerboundshapegammas = zeros(ii,4);
 pp=1;
 allSEs=zeros(pp,9);
 
@@ -351,7 +351,7 @@ allSEs=zeros(pp,9);
 for i = 1:aa
      
     lowestgammas = zeros(cc,3);
-    SE_mu_O = plotmu_O(i);
+    SE_mu_O = plotmu_O(i,:);
     Ba_O = false;
     W_O = false;
     Sc_O = false;
@@ -591,13 +591,18 @@ for i = 1:aa
             
           if (ratio_W001_W110>lowSEbound001) && (ratio_W001_W110<highSEbound001) ...
                   && (ratio_W112_W110>lowSEbound112) && (ratio_W112_W110<highSEbound112)
-              lowerboundshapegammas(ii) = [Temp(i); P_torr(j); ratio_W001_W110; ...
-                  ratio_W112_W110];
-              ii = ii+1;
+                if exist('lowerboundshapegammas','var')
+                    lowerboundshapegammas=[lowerboundshapegammas;...
+                    [Temp(i), P_torr(j), ratio_W001_W110, ...
+                    ratio_W112_W110]];
+                else
+                    lowerboundshapegammas=[Temp(i), P_torr(j), ratio_W001_W110, ...
+                    ratio_W112_W110];
+                end
           end
           
-           
-    
+          %}
+            
     end  
     
         
@@ -692,11 +697,11 @@ end
 save('data.mat','allSEs');
 save('allSEs.mat','allSEs');
 
-%{
+
 allSEs(:,10) = areafrac(:,1);
 allSEs(:,11) = areafrac(:,2);
 allSEs(:,12) = areafrac(:,3);
-%}
+
 %points = [1500 1.00E-40 4.556;1500 5.72E-25 1.215;1500 1.63E-19 1.221;...
 %    1500 2.85E-15 1.266;1350 2.85E-15 2.653];
 
