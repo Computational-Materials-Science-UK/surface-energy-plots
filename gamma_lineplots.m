@@ -641,6 +641,35 @@ for i = 1
         P20 = plot(mu_O,Ba2O4Sc4W112_gamma,':*g','LineWidth',1.5);
         L20 = 'Ba_{0.5}-triOSc-top/W(1 1 2)';
         hold on
+
+        %Shankar's O-Sc-W series slabs
+        P21 = plot(mu_O,W001double_gamma,'-x','LineWidth',2);
+        L21 = 'Bare W(0 0 1)';
+        hold on
+        P22 = plot(mu_O,ScW001double_gamma,'--x','LineWidth',2);
+        L22 = 'Sc-Covered W(0 0 1)';
+        hold on
+        P23 = plot(mu_O,OScW001double_gamma,':x','LineWidth',2);
+        L23 = 'Layered O-Sc-W(0 0 1)';
+        hold on
+        P24 = plot(mu_O,W110double_gamma,'-+','LineWidth',2);
+        L24 = 'Bare W(0 0 1)';
+        hold on
+        P25 = plot(mu_O,ScW110double_gamma,'--+','LineWidth',2.85);
+        L25 = 'Sc-Covered W(0 0 1)';
+        hold on
+        P26 = plot(mu_O,OScW110double_gamma,':+','LineWidth',2.85);
+        L26 = 'Layered O-Sc-W(0 0 1)';
+        hold on
+        P27 = plot(mu_O,W112double_gamma,'-*','LineWidth',2);
+        L27 = 'Bare W(0 0 1)';
+        hold on
+        P28 = plot(mu_O,ScW112double_gamma,'--*','LineWidth',2);
+        L28 = 'Sc-Covered W(0 0 1)';
+        hold on
+        P29 = plot(mu_O,OScW112double_gamma,':*','LineWidth',1.5);
+        L29 = 'Layered O-Sc-W(0 0 1)';
+        hold on
         %}
 %         
         line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
