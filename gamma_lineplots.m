@@ -140,7 +140,7 @@ Ba2O8W001_F = Ba2O8W001_F+Ba2O8W001_E0;
 %Bare 001 W slab
 W001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
 W001double_Watoms = 16;
-W001double_F = readmatrix('thermalpropsO-W001.txt');
+W001double_F = readmatrix('thermalprops001-W-1x1_double.txt');
 W001double_F = W001double_F(:,2);
 W001double_F = W001double_F*convertunit;
 W001double_E0 = -.20231144E+03;
@@ -149,7 +149,7 @@ W001double_F = W001double_F+W001double_E0;
 ScW001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
 ScW001double_Watoms = 16;
 ScW001double_Scatoms = 2;
-ScW001double_F = readmatrix('thermalpropsO-W001.txt');
+ScW001double_F = readmatrix('thermalprops001-ScW-1x1_double.txt');
 ScW001double_F = ScW001double_F(:,2);
 ScW001double_F = ScW001double_F*convertunit;
 ScW001double_E0 = -2.1860319E+02;
@@ -159,7 +159,7 @@ OScW001double_area = 20.12316713; %Area in angstroms^2.  This may not be the rig
 OScW001double_Watoms = 16;
 OScW001double_Scatoms = 2;
 OScW001double_Oatoms = 2;
-OScW001double_F = readmatrix('thermalpropsO-W001.txt');
+OScW001double_F = readmatrix('thermalprops001-OScW-1x1_double.txt');
 OScW001double_F = OScW001double_F(:,2);
 OScW001double_F = OScW001double_F*convertunit;
 OScW001double_E0 = -2.3987622E+02;
@@ -214,7 +214,7 @@ Ba2Sc2O8W110_F = Ba2Sc2O8W110_F+Ba2Sc2O8W110_E0;
 %Bare 110 W slab
 W110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
 W110double_Watoms = 12;
-W110double_F = readmatrix('thermalpropsO-W001.txt');
+W110double_F = readmatrix('thermalprops110-W-1x1_double.txt');
 W110double_F = W110double_F(:,2);
 W110double_F = W110double_F*convertunit;
 W110double_E0 = -1.4977044E+02;
@@ -223,7 +223,7 @@ W110double_F = W110double_F+W110double_E0;
 ScW110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
 ScW110double_Watoms = 12;
 ScW110double_Scatoms = 4;
-ScW110double_F = readmatrix('thermalpropsO-W001.txt');
+ScW110double_F = readmatrix('thermalprops110-ScW-1x1_double.txt');
 ScW110double_F = ScW110double_F(:,2);
 ScW110double_F = ScW110double_F*convertunit;
 ScW110double_E0 = -1.7655339E+02;
@@ -233,7 +233,7 @@ OScW110double_area = 28.61753414; %Area in angstroms^2.  This may not be the rig
 OScW110double_Watoms = 12;
 OScW110double_Scatoms = 4;
 OScW110double_Oatoms = 4;
-OScW110double_F = readmatrix('thermalpropsO-W001.txt');
+OScW110double_F = readmatrix('thermalprops110-OScW-1x1_double.txt');
 OScW110double_F = OScW110double_F(:,2);
 OScW110double_F = OScW110double_F*convertunit;
 OScW110double_E0 = -2.1577504E+02;
@@ -372,7 +372,7 @@ Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
 %Bare 112 W slab
 W112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
 W112double_Watoms = 22;
-W112double_F = readmatrix('thermalpropsO-W001.txt');
+W112double_F = readmatrix('thermalprops112-W-1x1_double.txt');
 W112double_F = W112double_F(:,2);
 W112double_F = W112double_F*convertunit;
 W112double_E0 = -2.7446276E+02;
@@ -381,7 +381,7 @@ W112double_F = W112double_F+W112double_E0;
 ScW112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
 ScW112double_Watoms = 22;
 ScW112double_Scatoms = 4;
-ScW112double_F = readmatrix('thermalpropsO-W001.txt');
+ScW112double_F = readmatrix('thermalprops112-ScW-1x1_double.txt');
 ScW112double_F = ScW112double_F(:,2);
 ScW112double_F = ScW112double_F*convertunit;
 ScW112double_E0 = -3.0382577E+02;
@@ -391,7 +391,7 @@ OScW112double_area = 50.11848623; %Area in angstroms^2.  This may not be the rig
 OScW112double_Watoms = 22;
 OScW112double_Scatoms = 4;
 OScW112double_Oatoms = 4;
-OScW112double_F = readmatrix('thermalpropsO-W001.txt');
+OScW112double_F = readmatrix('thermalprops112-OScW-1x1_double.txt');
 OScW112double_F = OScW112double_F(:,2);
 OScW112double_F = OScW112double_F*convertunit;
 OScW112double_E0 = -3.4242413E+02;
@@ -689,31 +689,31 @@ for i = 1  % What does this even do?
         %Shankar's O-Sc-W series slabs
         figure(i+201);
         hold on
-        P21 = plot(mu_O,W001double_gamma,'-x','LineWidth',2);
+        P21 = plot(mu_O,W001double_gamma,'-rx','LineWidth',2);
         L21 = 'Bare W(0 0 1)';
         hold on
-        P22 = plot(mu_O,ScW001double_gamma,'--x','LineWidth',2);
+        P22 = plot(mu_O,ScW001double_gamma,'--rx','LineWidth',2);
         L22 = 'Sc-Covered W(0 0 1)';
         hold on
-        P23 = plot(mu_O,OScW001double_gamma,':x','LineWidth',2);
+        P23 = plot(mu_O,OScW001double_gamma,':rx','LineWidth',2);
         L23 = 'Layered O-Sc-W(0 0 1)';
         hold on
-        P24 = plot(mu_O,W110double_gamma,'-+','LineWidth',2);
+        P24 = plot(mu_O,W110double_gamma,'-g+','LineWidth',2);
         L24 = 'Bare W(0 0 1)';
         hold on
-        P25 = plot(mu_O,ScW110double_gamma,'--+','LineWidth',2.85);
+        P25 = plot(mu_O,ScW110double_gamma,'--g+','LineWidth',2);
         L25 = 'Sc-Covered W(0 0 1)';
         hold on
-        P26 = plot(mu_O,OScW110double_gamma,':+','LineWidth',2.85);
+        P26 = plot(mu_O,OScW110double_gamma,':g+','LineWidth',2);
         L26 = 'Layered O-Sc-W(0 0 1)';
         hold on
-        P27 = plot(mu_O,W112double_gamma,'-*','LineWidth',2);
+        P27 = plot(mu_O,W112double_gamma,'-b*','LineWidth',2);
         L27 = 'Bare W(0 0 1)';
         hold on
-        P28 = plot(mu_O,ScW112double_gamma,'--*','LineWidth',2);
+        P28 = plot(mu_O,ScW112double_gamma,'--b*','LineWidth',2);
         L28 = 'Sc-Covered W(0 0 1)';
         hold on
-        P29 = plot(mu_O,OScW112double_gamma,':*','LineWidth',1.5);
+        P29 = plot(mu_O,OScW112double_gamma,':b*','LineWidth',2);
         L29 = 'Layered O-Sc-W(0 0 1)';
         hold on
 
