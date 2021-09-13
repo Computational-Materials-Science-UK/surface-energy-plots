@@ -470,11 +470,11 @@ for i = 1  % What does this even do?
                 mu_W(k,:) = mu_WO3(i,:)- 3*mu_O(k,:);
             end           
       
-            if mu_O(j,:) < Sccutoff(i,:)
-                mu_Sc(j,:) = mu_metSc(i,:);
+            if mu_O(k,:) < Sccutoff(i,:)
+                mu_Sc(k,:) = mu_metSc(i,:);
             else 
                 %mu_Sc(j,:) = mu_metSc(i,:);
-                mu_Sc(j,:) = (mu_Sc2O3(i,:)- 3*mu_O(j,:))/2;
+                mu_Sc(k,:) = (mu_Sc2O3(i,:)- 3*mu_O(j,:))/2;
             end
             
             W110_gamma(k,:) = (W110_F(i,:)-(W110_Watoms*mu_W(k,:)))/W110_area;
@@ -490,13 +490,13 @@ for i = 1  % What does this even do?
                 +Ba2Sc2O8W110_Scatoms*mu_Sc(k,:)))/Ba2Sc2O8W110_area)+(Temp(i)*Ba2Sc2O8W110_config);
 
             %%% Shankar's 1x1 110 W slabs %%%
-            W110double_gamma(j,:) = (W110double_F(i,:)-(W110double_Watoms*mu_W(j,:)))/W110double_area;
+            W110double_gamma(k,:) = (W110double_F(i,:)-(W110double_Watoms*mu_W(k,:)))/W110double_area;
 
-            ScW110double_gamma(j,:) = (ScW110double_F(i,:)-(ScW110double_Watoms*mu_W(j,:)...
+            ScW110double_gamma(k,:) = (ScW110double_F(i,:)-(ScW110double_Watoms*mu_W(k,:)...
                 +ScW110double_Scatoms*mu_Sc(j,:)))/ScW110double_area;
             
-            OScW110double_gamma(j,:) = ((OScW110double_F(i,:)-(OScW110double_Watoms*mu_W(j,:)...
-                +OScW110double_Scatoms*mu_Sc(j,:)+OScW110double_Oatoms*mu_O(j,:)))/OScW110double_area);
+            OScW110double_gamma(k,:) = ((OScW110double_F(i,:)-(OScW110double_Watoms*mu_W(k,:)...
+                +OScW110double_Scatoms*mu_Sc(k,:)+OScW110double_Oatoms*mu_O(k,:)))/OScW110double_area);
         end
         
         for n = 1:length(mu_O)
@@ -561,13 +561,13 @@ for i = 1  % What does this even do?
                 Ba2O4Sc4W112_Oatoms*mu_O(n,:)))/Ba2O4Sc4W112_area);
 
             %%% Shankar's 1x1 112 W slabs %%%
-            W112double_gamma(j,:) = (W112double_F(i,:)-(W112double_Watoms*mu_W(j,:)))/W112double_area;
+            W112double_gamma(n,:) = (W112double_F(i,:)-(W112double_Watoms*mu_W(n,:)))/W112double_area;
 
-            ScW112double_gamma(j,:) = (ScW112double_F(i,:)-(ScW112double_Watoms*mu_W(j,:)...
-                +ScW112double_Scatoms*mu_Sc(j,:)))/ScW112double_area;
+            ScW112double_gamma(n,:) = (ScW112double_F(i,:)-(ScW112double_Watoms*mu_W(n,:)...
+                +ScW112double_Scatoms*mu_Sc(n,:)))/ScW112double_area;
             
-            OScW112double_gamma(j,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(j,:)...
-                +OScW112double_Scatoms*mu_Sc(j,:)+OScW112double_Oatoms*mu_O(j,:)))/OScW112double_area);
+            OScW112double_gamma(n,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(n,:)...
+                +OScW112double_Scatoms*mu_Sc(n,:)+OScW112double_Oatoms*mu_O(n,:)))/OScW112double_area);
                   
         end
         
