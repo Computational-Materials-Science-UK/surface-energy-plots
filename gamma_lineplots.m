@@ -401,7 +401,7 @@ OScW112double_F = OScW112double_F+OScW112double_E0;
 %%%%%%% Plotting %%%%%%%
 
 
-for i = 1
+for i = 1  % What does this even do?
         %%% I think this is the 001 surface energy discovery place %%%
         for j = 1:length(mu_O)
             
@@ -449,7 +449,7 @@ for i = 1
                 +ScW001double_Scatoms*mu_Sc(j,:)))/ScW001double_area;
             
             OScW001double_gamma(j,:) = ((OScW001double_F(i,:)-(OScW001double_Watoms*mu_W(j,:)...
-                +OScW001double_Scatoms*mu_Ba(j,:)+OScW001double_Oatoms*mu_O(j,:)))/OScW001double_area);
+                +OScW001double_Scatoms*mu_Sc(j,:)+OScW001double_Oatoms*mu_O(j,:)))/OScW001double_area);
            
         end
         
@@ -496,7 +496,7 @@ for i = 1
                 +ScW110double_Scatoms*mu_Sc(j,:)))/ScW110double_area;
             
             OScW110double_gamma(j,:) = ((OScW110double_F(i,:)-(OScW110double_Watoms*mu_W(j,:)...
-                +OScW110double_Scatoms*mu_Ba(j,:)+OScW110double_Oatoms*mu_O(j,:)))/OScW110double_area);
+                +OScW110double_Scatoms*mu_Sc(j,:)+OScW110double_Oatoms*mu_O(j,:)))/OScW110double_area);
         end
         
         for n = 1:length(mu_O)
@@ -567,7 +567,7 @@ for i = 1
                 +ScW112double_Scatoms*mu_Sc(j,:)))/ScW112double_area;
             
             OScW112double_gamma(j,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(j,:)...
-                +OScW112double_Scatoms*mu_Ba(j,:)+OScW112double_Oatoms*mu_O(j,:)))/OScW112double_area);
+                +OScW112double_Scatoms*mu_Sc(j,:)+OScW112double_Oatoms*mu_O(j,:)))/OScW112double_area);
                   
         end
         
@@ -642,34 +642,7 @@ for i = 1
         L20 = 'Ba_{0.5}-triOSc-top/W(1 1 2)';
         hold on
 
-        %Shankar's O-Sc-W series slabs
-        P21 = plot(mu_O,W001double_gamma,'-x','LineWidth',2);
-        L21 = 'Bare W(0 0 1)';
-        hold on
-        P22 = plot(mu_O,ScW001double_gamma,'--x','LineWidth',2);
-        L22 = 'Sc-Covered W(0 0 1)';
-        hold on
-        P23 = plot(mu_O,OScW001double_gamma,':x','LineWidth',2);
-        L23 = 'Layered O-Sc-W(0 0 1)';
-        hold on
-        P24 = plot(mu_O,W110double_gamma,'-+','LineWidth',2);
-        L24 = 'Bare W(0 0 1)';
-        hold on
-        P25 = plot(mu_O,ScW110double_gamma,'--+','LineWidth',2.85);
-        L25 = 'Sc-Covered W(0 0 1)';
-        hold on
-        P26 = plot(mu_O,OScW110double_gamma,':+','LineWidth',2.85);
-        L26 = 'Layered O-Sc-W(0 0 1)';
-        hold on
-        P27 = plot(mu_O,W112double_gamma,'-*','LineWidth',2);
-        L27 = 'Bare W(0 0 1)';
-        hold on
-        P28 = plot(mu_O,ScW112double_gamma,'--*','LineWidth',2);
-        L28 = 'Sc-Covered W(0 0 1)';
-        hold on
-        P29 = plot(mu_O,OScW112double_gamma,':*','LineWidth',1.5);
-        L29 = 'Layered O-Sc-W(0 0 1)';
-        hold on
+        
         %}
 %         
         line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
@@ -711,6 +684,77 @@ for i = 1
         text(-11.75,0.05,txt,'fontsize', 35);
         set(gcf, 'Position',  [0, 0, 1500, 800]);
         saveas(gcf,['allcalculatedsurfaces_t',num2str(Temp(i,:)),'.png']);
+
+
+        %Shankar's O-Sc-W series slabs
+        figure(i+201);
+        hold on
+        P21 = plot(mu_O,W001double_gamma,'-x','LineWidth',2);
+        L21 = 'Bare W(0 0 1)';
+        hold on
+        P22 = plot(mu_O,ScW001double_gamma,'--x','LineWidth',2);
+        L22 = 'Sc-Covered W(0 0 1)';
+        hold on
+        P23 = plot(mu_O,OScW001double_gamma,':x','LineWidth',2);
+        L23 = 'Layered O-Sc-W(0 0 1)';
+        hold on
+        P24 = plot(mu_O,W110double_gamma,'-+','LineWidth',2);
+        L24 = 'Bare W(0 0 1)';
+        hold on
+        P25 = plot(mu_O,ScW110double_gamma,'--+','LineWidth',2.85);
+        L25 = 'Sc-Covered W(0 0 1)';
+        hold on
+        P26 = plot(mu_O,OScW110double_gamma,':+','LineWidth',2.85);
+        L26 = 'Layered O-Sc-W(0 0 1)';
+        hold on
+        P27 = plot(mu_O,W112double_gamma,'-*','LineWidth',2);
+        L27 = 'Bare W(0 0 1)';
+        hold on
+        P28 = plot(mu_O,ScW112double_gamma,'--*','LineWidth',2);
+        L28 = 'Sc-Covered W(0 0 1)';
+        hold on
+        P29 = plot(mu_O,OScW112double_gamma,':*','LineWidth',1.5);
+        L29 = 'Layered O-Sc-W(0 0 1)';
+        hold on
+
+        line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
+            'LineWidth', 4, 'LineStyle','-');
+%         text([Wcutoff(i,:) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
+%         hold on
+%         text([Wcutoff(i,:) - 0.3], 0.05, 'W','fontsize', 28, 'Color', 'c');
+%         hold on
+%         
+        line([Bacutoff(i,:) Bacutoff(i,:)], [-10 0.7],'Color','m', ...
+            'LineWidth', 4, 'LineStyle','-');
+%         text([Bacutoff(i,:) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
+%         hold on
+%         text([Bacutoff(i,:) - 0.3], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
+%         
+         line([Sccutoff(i,:) Sccutoff(i,:)], [-10 0.7],'Color','k', ...
+             'LineWidth', 4, 'LineStyle','-');
+%         text([Sccutoff(i,:) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
+%         hold on
+%         text([Sccutoff(i,:) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
+%         
+       
+        hold off;
+        set(gca,'FontSize',28,'FontName','Tahoma');
+        xlabel({'\mu_O (eV)'},'fontsize', 32);
+        ylabel({'Surface Energy (eV/Ang.^2)'},'fontsize', 32);
+        axis([-12 -7.5 0 0.6])
+        ax = gca;
+        ax.LineWidth = 4;
+        %axes('YColor','none');
+        box on;
+        %grid on;
+        legend([P21; P22; P23; P24; P25; P26; P27; P28; P29], L21, L22, L23, L24, L25, L26, L27, L28, L29, 'fontsize', 18, ...
+            'Location','southoutside');
+        legend off;
+        txt = {['T = ',num2str(Temp(i,:)),' K']};
+        text(-11.75,0.05,txt,'fontsize', 35);
+        set(gcf, 'Position',  [0, 0, 1500, 800]);
+        saveas(gcf,['Shankarssurfaces_t',num2str(Temp(i,:)),'.png']);
+
       
 end
 
