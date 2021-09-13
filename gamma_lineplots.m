@@ -2,12 +2,8 @@ clear all;
 close all;
 
 
-<<<<<<< HEAD
-Temp = linspace(0,2000,201);
-=======
 
 Temp = linspace(0,2000,201); %Create a temperature array of 201 units from 0 K to 2000 K in increments of 10 K- Notably this is (and must be) the same increment as in the Thermal Props files
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
 Temp = transpose(Temp);
 convertunit = (1/6.022E23)*1000*(1/1.60218E-19); %Unit conversion conversion from Kilojoules to eV
 mu_O = linspace(-12,-6.5,111);
@@ -69,15 +65,11 @@ mu_Sc2O3 = (Sc2O3111_F+Sc2O3111_E0)/Sc2O3111_numunits;
 
 Sccutoff = (mu_Sc2O3-2*mu_metSc)/3;
 
-<<<<<<< HEAD
-
-=======
 [Al222_F, mu_metAl]=ReadFromFile(32, 'thermalpropsAl222.txt', -.11970109E+03); %Bulk aluminum properties
 
 [Al4O6_F, mu_Al4O6]=ReadFromFile(16, 'thermalpropsAl4O6.txt', -.59797974E+03); %Bulk alumina properties
 
 Alcutoff = (mu_Al4O6-2*mu_metAl)/3; %Setting the Al/Alumina cutoff
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
 
 %%%%%%% (001) %%%%%%%
 
@@ -365,7 +357,6 @@ Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F+Ba2Sc2O6halfbareW112_E0;
 Ba2Sc2O6halfbareW112_gamma = (Ba2Sc2O6halfbareW112_F-Ba2Sc2O6halfbareW112_Watoms*mu_metW)/...
     Ba2Sc2O6halfbareW112_area;
 
-<<<<<<< HEAD
 Ba2O4Sc4W112_area = 49.27;
 Ba2O4Sc4W112_Watoms = 38;
 Ba2O4Sc4W112_Scatoms = 4;
@@ -376,7 +367,7 @@ Ba2O4Sc4W112_F = Ba2O4Sc4W112_F(:,2);
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F*convertunit;
 Ba2O4Sc4W112_E0 = -.55767079E+03;
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
-=======
+
 %%% Shankar's 1x1 112 Slabs %%%
 %Bare 112 W slab
 W112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
@@ -406,7 +397,6 @@ OScW112double_F = OScW112double_F*convertunit;
 OScW112double_E0 = -3.4242413E+02;
 OScW112double_F = OScW112double_F+OScW112double_E0;
 %Ba-O-Sc-W 110 slab goes here
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
 
 %%%%%%% Plotting %%%%%%%
 
@@ -565,12 +555,10 @@ for i = 1
                 +Ba2Sc2O6halfdecW112_Baatoms*mu_Ba(n,:)+Ba2Sc2O6halfdecW112_Scatoms*mu_Sc(n,:)+...
                 Ba2Sc2O6halfdecW112_Oatoms*mu_O(n,:)))/Ba2Sc2O6halfdecW112_area)+(Temp(i)*Ba2Sc2O6halfdecW112_config))...
                 -Ba2Sc2O6halfbareW112_gamma(i);
-<<<<<<< HEAD
             
             Ba2O4Sc4W112_gamma(n,:) = ((Ba2O4Sc4W112_F(i,:)-(Ba2O4Sc4W112_Watoms*mu_W(n,:)...
                 +Ba2O4Sc4W112_Baatoms*mu_Ba(n,:)+Ba2O4Sc4W112_Scatoms*mu_Sc(n,:)+...
                 Ba2O4Sc4W112_Oatoms*mu_O(n,:)))/Ba2O4Sc4W112_area);
-=======
 
             %%% Shankar's 1x1 112 W slabs %%%
             W112double_gamma(j,:) = (W112double_F(i,:)-(W112double_Watoms*mu_W(j,:)))/W112double_area;
@@ -580,7 +568,6 @@ for i = 1
             
             OScW112double_gamma(j,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(j,:)...
                 +OScW112double_Scatoms*mu_Ba(j,:)+OScW112double_Oatoms*mu_O(j,:)))/OScW112double_area);
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
                   
         end
         
