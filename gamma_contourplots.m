@@ -692,11 +692,11 @@ end
 save('data.mat','allSEs');
 save('allSEs.mat','allSEs');
 
-
+%{
 allSEs(:,10) = areafrac(:,1);
 allSEs(:,11) = areafrac(:,2);
 allSEs(:,12) = areafrac(:,3);
-
+%}
 %points = [1500 1.00E-40 4.556;1500 5.72E-25 1.215;1500 1.63E-19 1.221;...
 %    1500 2.85E-15 1.266;1350 2.85E-15 2.653];
 
