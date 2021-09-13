@@ -87,7 +87,7 @@ Sc2O3111_numunits = 8;
 Sc2O3111_F = readmatrix('thermalpropsSc2O3111.txt');
 Sc2O3111_F = Sc2O3111_F(:,2);
 Sc2O3111_F = Sc2O3111_F*convertunit;
-Sc2O3111_E0 = -.36907745E+03;
+Sc2O3111_E0 = -.36207745E+03;
 mu_Sc2O3 = (Sc2O3111_F+Sc2O3111_E0)/Sc2O3111_numunits;
 
 Sccutoff = (mu_Sc2O3-2*mu_metSc)/3;
@@ -101,8 +101,6 @@ W001surfunpert_F = W001surfunpert_F(:,2);
 W001surfunpert_F = W001surfunpert_F*convertunit;
 W001surfunpert_E0 = -.80941964E+03;
 W001surfunpert_F = W001surfunpert_F+W001surfunpert_E0;
-W001surfunpert_gamma = (W001surfunpert_F-W001surfunpert_Watoms*mu_metW)/...
-    W001surfunpert_area;
 
 W001surfpert_area = 80.5;
 W001surfpert_Watoms = 64;
@@ -111,8 +109,6 @@ W001surfpert_F = W001surfpert_F(:,2);
 W001surfpert_F = W001surfpert_F*convertunit;
 W001surfpert_E0 = -.81006004E+03;
 W001surfpert_F = W001surfpert_F+W001surfpert_E0;
-W001surfpert_gamma = (W001surfpert_F-W001surfpert_Watoms*mu_metW)/...
-    W001surfpert_area;
 W001surfpert_WF = 4.48;
 
 O8W001_area = 80.5;
@@ -171,8 +167,6 @@ W110_F = W110_F(:,2);
 W110_F = W110_F*convertunit;
 W110_E0 = -.45508870E+03;
 W110_F = W110_F+W110_E0;
-W110_gamma = (W110_F-W110_Watoms*mu_metW)/...
-    W110_area;
 W110_WF = 4.81;
 
 O8W110_area = 56.88;
@@ -220,8 +214,6 @@ W112_F = W112_F(:,2);
 W112_F = W112_F*convertunit;
 W112_E0 = -.43013015E+03;
 W112_F = W112_F+W112_E0;
-W112_gamma = (W112_F-W112_Watoms*mu_metW)/...
-    W112_area;
 W112_WF = 4.33;
 
 O4W112_area = 49.27;
@@ -233,6 +225,36 @@ O4W112_F = O4W112_F*convertunit;
 O4W112_E0 = -.51392254E+03;
 O4W112_F = O4W112_F+O4W112_E0;
 O4W112_WF = 7.94;
+
+Sc2W112top_area = 49.27;
+Sc2W112top_Watoms = 38;
+Sc2W112top_Scatoms = 2;
+Sc2W112top_F = readmatrix('thermalpropsSc2-W112.txt');
+Sc2W112top_F = Sc2W112top_F(:,2);
+Sc2W112top_F = Sc2W112top_F*convertunit;
+Sc2W112top_E0 = -.49288297E+03;
+Sc2W112top_F = Sc2W112top_F+Sc2W112top_E0;
+Sc2W112top_WF= 2.887924;
+
+Sc4W112top_area = 49.27;
+Sc4W112top_Watoms = 38;
+Sc4W112top_Scatoms = 4;
+Sc4W112top_F = readmatrix('thermalpropsSc4-W112.txt');
+Sc4W112top_F = Sc4W112top_F(:,2);
+Sc4W112top_F = Sc4W112top_F*convertunit;
+Sc4W112top_E0 = -.50486328E+03;
+Sc4W112top_F = Sc4W112top_F+Sc4W112top_E0;
+Sc4W112top_WF = 3.4339847;
+
+Sc4triW112_area = 49.27;
+Sc4triW112_Watoms = 38;
+Sc4triW112_Scatoms = 4;
+Sc4triW112_F = readmatrix('thermalpropsSc4triW112.txt');
+Sc4triW112_F = Sc4triW112_F(:,2);
+Sc4triW112_F = Sc4triW112_F*convertunit;
+Sc4triW112_E0 = -.51116579E+03;
+Sc4triW112_F = Sc4triW112_F+Sc4triW112_E0;
+Sc4triW112_WF = 2.6720228;
 
 Ba2O4W112_2x2_area = 98.533; 
 Ba2O4W112_2x2_Watoms = 76;
@@ -285,6 +307,41 @@ Ba2Sc2O6W112_E0 = -.16071218E+04;
 Ba2Sc2O6W112_F = Ba2Sc2O6W112_F+Ba2Sc2O6W112_E0;
 Ba2Sc2O6W112_WF = 1.45;
 
+Ba2Sc2O6halfdecW112_area = 147.7998/2;
+Ba2Sc2O6halfdecW112_Watoms = 72;
+Ba2Sc2O6halfdecW112_Baatoms = 2;
+Ba2Sc2O6halfdecW112_Oatoms = 6;
+Ba2Sc2O6halfdecW112_Scatoms = 2;
+Ba2Sc2O6halfdecW112_config = 7.52E-6/2;
+Ba2Sc2O6halfdecW112_F = readmatrix('thermalpropsBa2Sc2O6_dec-W112.txt');
+Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F(:,2);
+Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F*convertunit;
+Ba2Sc2O6halfdecW112_E0 = -.98208329E+03;
+Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F+Ba2Sc2O6halfdecW112_E0;
+Ba2Sc2O6halfdecW112_WF = 1.45;
+
+Ba2Sc2O6halfbareW112_area = 147.7998; 
+Ba2Sc2O6halfbareW112_Watoms = 66;
+Ba2Sc2O6halfbareW112_F = readmatrix('thermalpropsBa2Sc2O6_bare-W112.txt');
+Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F(:,2);
+Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F*convertunit;
+Ba2Sc2O6halfbareW112_E0 = -.82364685E+03;
+Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F+Ba2Sc2O6halfbareW112_E0;
+Ba2Sc2O6halfbareW112_gamma = (Ba2Sc2O6halfbareW112_F-Ba2Sc2O6halfbareW112_Watoms*mu_metW)/...
+    Ba2Sc2O6halfbareW112_area;
+
+Ba2O4Sc4W112_area = 49.27;
+Ba2O4Sc4W112_Watoms = 38;
+Ba2O4Sc4W112_Scatoms = 4;
+Ba2O4Sc4W112_Oatoms = 4;
+Ba2O4Sc4W112_Baatoms = 2;
+Ba2O4Sc4W112_F = readmatrix('thermalpropsBa2O4Sc4-W112.txt');
+Ba2O4Sc4W112_F = Ba2O4Sc4W112_F(:,2);
+Ba2O4Sc4W112_F = Ba2O4Sc4W112_F*convertunit;
+Ba2O4Sc4W112_E0 = -.55767079E+03;
+Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
+Ba2O4Sc4W112_WF = 1.92933196;
+
 ii=1;
 lowerboundshapegammas = zeros(ii,4);
 pp=1;
@@ -294,7 +351,7 @@ allSEs=zeros(pp,9);
 for i = 1:aa
      
     lowestgammas = zeros(cc,3);
-    SE_mu_O = plotmu_O(i,:);
+    SE_mu_O = plotmu_O(i);
     Ba_O = false;
     W_O = false;
     Sc_O = false;
@@ -303,7 +360,21 @@ for i = 1:aa
             mu_Ba(j) = mu_metBa(i);
             mu_W(j) = mu_metW(i);
             mu_Sc(j) = mu_metSc(i);
-        
+            
+            %{
+            if SE_mu_O(j)>= Bacutoff(i)
+                if(~Ba_O) 
+                    if exist('r','var')
+                    r=[r;[Temp(i),P_torr(j),mu_metBa(i)]];
+                    else
+                    r=[Temp(i),P_torr(j),mu_metBa(i)];
+                    end
+                end
+                mu_Ba(j) = mu_metBa(i);
+                Ba_O = true;
+            end
+            %}
+            
             if SE_mu_O(j)>= Bacutoff(i)
                 if(~Ba_O) 
                     if exist('r','var')
@@ -315,7 +386,7 @@ for i = 1:aa
                 mu_Ba(j) = mu_BaO(i)- SE_mu_O(j);
                 Ba_O = true;
             end
-            
+            %}
             if SE_mu_O(j) >= Wcutoff(i)
                 if(~W_O) 
                     if exist('s','var')
@@ -327,37 +398,53 @@ for i = 1:aa
                 mu_W(j) = mu_WO3(i)- 3*SE_mu_O(j);
                 W_O = true;
             end
+            %{
+            if SE_mu_O(j) >= Sccutoff(i)
+                if(~Sc_O) 
+                    if exist('z','var')
+                    z=[z;[Temp(i),P_torr(j),mu_metSc(i)]];
+                    else
+                    z=[Temp(i),P_torr(j),mu_metSc(i)];
+                    end
+                end
+                mu_Sc(j) = mu_metSc(i);
+                Sc_O = true;
+            end
+            %}
             
             if SE_mu_O(j) >= Sccutoff(i)
                 if(~Sc_O) 
                     if exist('z','var')
-                    z=[z;[Temp(i),P_torr(j),Wcutoff(i)]];
+                    z=[z;[Temp(i),P_torr(j),Sccutoff(i)]];
                     else
-                    z=[Temp(i),P_torr(j),Wcutoff(i)];
+                    z=[Temp(i),P_torr(j),Sccutoff(i)];
                     end
                 end
                 mu_Sc(j) = (mu_Sc2O3(i)- 3*SE_mu_O(j))/2;
                 Sc_O = true;
             end
-            
+            %}
  %%%% 001 %%%%
  
+            W001surfpert_gamma(j) = (W001surfpert_F(i)-...
+                (W001surfpert_Watoms*mu_W(j)))/W001surfpert_area; 
+            
             Ba4O8W001_gamma(j) = ((Ba4O8W001_F(i)-(Ba4O8W001_Watoms*mu_W(j)...
-                +Ba4O8W001_Baatoms*mu_Ba(j)+Ba4O8W001_Oatoms*SE_mu_O(j)))...
-                /Ba4O8W001_area)+(Temp(i)*Ba4O8W001_config);
+                +Ba4O8W001_Baatoms*mu_Ba(j)+Ba4O8W001_Oatoms*SE_mu_O(j)))/Ba4O8W001_area)+(Temp(i)*Ba4O8W001_config);
             
             Ba2Sc2O8W001_gamma(j) = ((Ba2Sc2O8W001_F(i)-(Ba2Sc2O8W001_Watoms*mu_W(j)...
                 +Ba2Sc2O8W001_Baatoms*mu_Ba(j)+Ba2Sc2O8W001_Oatoms*SE_mu_O(j)+Ba2Sc2O8W001_Scatoms*mu_Sc(j)))/...
                 Ba2Sc2O8W001_area+(Temp(i)*Ba2Sc2O8W001_config));
             
             O8W001_gamma(j) = (O8W001_F(i)-(O8W001_Watoms*mu_W(j)...
-                +O8W001_Oatoms*SE_mu_O(j)))/O8W001_area;
+                +O8W001_Oatoms*SE_mu_O(j)))/O8W001_area;  
             
             Ba2O8W001_gamma(j) = ((Ba2O8W001_F(i)-(Ba2O8W001_Watoms*mu_W(j)...
-                +Ba2O8W001_Baatoms*mu_Ba(j)+Ba2O8W001_Oatoms*SE_mu_O(j)))/Ba2O8W001_area...
-                +(Temp(i)*Ba2O8W001_config));
+                +Ba2O8W001_Baatoms*mu_Ba(j)+Ba2O8W001_Oatoms*SE_mu_O(j)))/Ba2O8W001_area)+(Temp(i)*Ba2O8W001_config);
             
-            W001set = [W001surfpert_gamma(i); Ba4O8W001_gamma(j); ...
+            
+            
+            W001set = [W001surfpert_gamma(j); Ba4O8W001_gamma(j); ...
                 Ba2Sc2O8W001_gamma(j); O8W001_gamma(j); Ba2O8W001_gamma(j)];
             lowestW001 = min(W001set);
             lowestW001pos = find(W001set==min(W001set));
@@ -373,77 +460,113 @@ for i = 1:aa
             else
                 W001WF = Ba2O8W001_WF;
             end
-          
            
                     
 %%%% 110 %%%%
 
-          O8W110_gamma(j) = (O8W110_F(i)-(Ba2O8W110_Watoms*mu_W(j)...
-                +Ba2O8W110_Oatoms*SE_mu_O(j)))/Ba2O8W110_area;
+        	W110_gamma(j) = (W110_F(i)-(W110_Watoms*mu_W(j)))/W110_area;
             
-          Ba2O8W110_gamma(j) = ((Ba2O8W110_F(i)-(Ba2O8W110_Watoms*mu_W(j)...
+            Ba2O8W110_gamma(j) = ((Ba2O8W110_F(i)-(Ba2O8W110_Watoms*mu_W(j)...
                 +Ba2O8W110_Baatoms*mu_Ba(j)+Ba2O8W110_Oatoms*SE_mu_O(j)))/Ba2O8W110_area)+(Temp(i)*Ba2O8W110_config);
                       
-          Ba2Sc2O8W110_gamma(j) = ((Ba2Sc2O8W110_F(i)-(Ba2Sc2O8W110_Watoms*mu_W(j)...
+            Ba2Sc2O8W110_gamma(j) = ((Ba2Sc2O8W110_F(i)-(Ba2Sc2O8W110_Watoms*mu_W(j)...
                 +Ba2Sc2O8W110_Baatoms*mu_Ba(j)+Ba2Sc2O8W110_Oatoms*SE_mu_O(j)...
                 +Ba2Sc2O8W110_Scatoms*mu_Sc(j)))/Ba2Sc2O8W110_area)+(Temp(i)*Ba2Sc2O8W110_config);
+            
+            O8W110_gamma(j) = (O8W110_F(i)-(Ba2O8W110_Watoms*mu_W(j)...
+                +Ba2O8W110_Oatoms*SE_mu_O(j)))/Ba2O8W110_area;
        
-          W110set = [W110_gamma(i); Ba2O8W110_gamma(j); ...
+          	W110set = [W110_gamma(j); Ba2O8W110_gamma(j); ...
                 Ba2Sc2O8W110_gamma(j); O8W110_gamma(j)];
-          lowestW110 = min(W110set);
-          lowestW110pos = find(W110set==min(W110set));
-          
-          if lowestW110pos == 1
-              W110WF = W110_WF;
-          elseif lowestW110pos == 2
-              W110WF = Ba2O8W110_WF;
-          elseif lowestW110pos == 3
-              W110WF = Ba2Sc2O8W110_WF;
-          else
-              W110F = O8W110_WF;
-          end
+            lowestW110 = min(W110set);
+            lowestW110pos = find(W110set==min(W110set));
+            
+            if lowestW110pos == 1
+                W110WF = W110_WF;
+            elseif lowestW110pos == 2
+                W110WF = Ba2O8W110_WF;
+            elseif lowestW110pos == 3
+                W110WF = Ba2Sc2O8W110_WF;
+            else
+                W110WF = O8W110_WF;
+            end
        
     
 %%%% 112 %%%%
             
+          W112_gamma(j) = (W112_F(i)-(W112_Watoms*mu_W(j)))/W112_area;
+          
           O4W112_gamma(j) = (O4W112_F(i)-(O4W112_Watoms*mu_W(j)...
-                +O4W112_Oatoms*SE_mu_O(j)))/O4W112_area;
-            
+              +O4W112_Oatoms*SE_mu_O(j)))/O4W112_area;
+          
+          Sc2W112top_gamma(j) = (Sc2W112top_F(i)-(Sc2W112top_Watoms*mu_W(j)...
+              +Sc2W112top_Scatoms*mu_Sc(j)))/Sc2W112top_area;
+          
+          Sc4W112top_gamma(j) = (Sc4W112top_F(i)-(Sc4W112top_Watoms*mu_W(j)...
+              +Sc4W112top_Scatoms*mu_Sc(j)))/Sc4W112top_area;
+          
+          Sc4triW112_gamma(j) = (Sc4triW112_F(i)-(Sc4triW112_Watoms*mu_W(j)...
+              +Sc4triW112_Scatoms*mu_Sc(j)))/Sc4triW112_area;
+          
           Ba2O4W112_2x2_gamma(j) = ((Ba2O4W112_2x2_F(i)-(Ba2O4W112_2x2_Watoms*mu_W(j)...
-                +Ba2O4W112_2x2_Baatoms*mu_Ba(j)+Ba2O4W112_2x2_Oatoms*SE_mu_O(j)))/Ba2O4W112_2x2_area)+(Temp(i)*Ba2O4W112_2x2_config);
-               
+              +Ba2O4W112_2x2_Baatoms*mu_Ba(j)+Ba2O4W112_2x2_Oatoms*SE_mu_O(j)))/Ba2O4W112_2x2_area)+(Temp(i)*Ba2O4W112_2x2_config);
+             
           Ba1Sc1O4W112_gamma(j) = ((Ba1Sc1O4W112_F(i)-(Ba1Sc1O4W112_Watoms*mu_W(j)...
-                +Ba1Sc1O4W112_Baatoms*mu_Ba(j)+Ba1Sc1O4W112_Oatoms*SE_mu_O(j)+...
-                Ba1Sc1O4W112_Scatoms*mu_Sc(j)))/Ba1Sc1O4W112_area)+(Temp(i)*Ba1Sc1O4W112_config);
-            
+              +Ba1Sc1O4W112_Baatoms*mu_Ba(j)+Ba1Sc1O4W112_Oatoms*SE_mu_O(j)+...
+              Ba1Sc1O4W112_Scatoms*mu_Sc(j)))/Ba1Sc1O4W112_area)+(Temp(i)*Ba1Sc1O4W112_config);
+          
           Ba2Sc2O4W112_gamma(j) = ((Ba2Sc2O4W112_F(i)-(Ba2Sc2O4W112_Watoms*mu_W(j)...
-                +Ba2Sc2O4W112_Baatoms*mu_Ba(j)+Ba2Sc2O4W112_Oatoms*SE_mu_O(j)+...
-                Ba2Sc2O4W112_Scatoms*mu_Sc(j)))/Ba2Sc2O4W112_area)+(Temp(i)*Ba2Sc2O4W112_config);
-            
+              +Ba2Sc2O4W112_Baatoms*mu_Ba(j)+Ba2Sc2O4W112_Oatoms*SE_mu_O(j)+...
+              Ba2Sc2O4W112_Scatoms*mu_Sc(j)))/Ba2Sc2O4W112_area)+(Temp(i)*Ba2Sc2O4W112_config);
+          
           Ba2Sc2O6W112_gamma(j) = ((Ba2Sc2O6W112_F(i)-(Ba2Sc2O6W112_Watoms*mu_W(j)...
-                +Ba2Sc2O6W112_Baatoms*mu_Ba(j)+Ba2Sc2O6W112_Scatoms*mu_Sc(j)+...
-                Ba2Sc2O6W112_Oatoms*SE_mu_O(j)))/Ba2Sc2O6W112_area)+(Temp(i)*Ba2Sc2O6W112_config);
-                 
+              +Ba2Sc2O6W112_Baatoms*mu_Ba(j)+Ba2Sc2O6W112_Scatoms*mu_Sc(j)+...
+              Ba2Sc2O6W112_Oatoms*SE_mu_O(j)))/Ba2Sc2O6W112_area)+(Temp(i)*Ba2Sc2O6W112_config);
+          
+          Ba2Sc2O6halfdecW112_gamma(j) = (((Ba2Sc2O6halfdecW112_F(i)-(Ba2Sc2O6halfdecW112_Watoms*mu_W(j)...
+              +Ba2Sc2O6halfdecW112_Baatoms*mu_Ba(j)+Ba2Sc2O6halfdecW112_Scatoms*mu_Sc(j)+...
+              Ba2Sc2O6halfdecW112_Oatoms*SE_mu_O(j)))/Ba2Sc2O6halfdecW112_area)+(Temp(i)*Ba2Sc2O6halfdecW112_config))...
+              -Ba2Sc2O6halfbareW112_gamma(i);
+          
+          Ba2O4Sc4W112_gamma(j) = ((Ba2O4Sc4W112_F(i)-(Ba2O4Sc4W112_Watoms*mu_W(j)...
+              +Ba2O4Sc4W112_Baatoms*mu_Ba(j)+Ba2O4Sc4W112_Scatoms*mu_Sc(j)+...
+              Ba2O4Sc4W112_Oatoms*SE_mu_O(j)))/Ba2O4Sc4W112_area);
+                        
            
-          W112set = [W112_gamma(i); Ba2O4W112_2x2_gamma(j); ...
+          W112set = [W112_gamma(j); O4W112_gamma(j); Sc2W112top_gamma(j);...
+                Sc4W112top_gamma(j); Sc4triW112_gamma(j); Ba2O4W112_2x2_gamma(j); ...
                 Ba1Sc1O4W112_gamma(j); Ba2Sc2O4W112_gamma(j); ...
-                Ba2Sc2O6W112_gamma(j); O4W112_gamma(j)];
+                Ba2Sc2O6W112_gamma(j); Ba2Sc2O6halfdecW112_gamma(j); ...
+                Ba2O4Sc4W112_gamma(j)];
+          
           lowestW112 = min(W112set);
           lowestW112pos = find(W112set==min(W112set));
+          
           
           if lowestW112pos == 1
               W112WF = W112_WF;
           elseif lowestW112pos == 2
-              W112WF = Ba2O4W112_2x2_WF;
-          elseif lowestW112pos == 3
-              W112WF = Ba1Sc1O4W112_WF;
-          elseif lowestW112pos == 4
-              W112WF = Ba2Sc2O4W112_WF;
-          elseif lowestW112pos == 5
-              W112WF = Ba2Sc2O6W112_WF;
-          else
               W112WF = O4W112_WF;
+          elseif lowestW112pos == 3
+              W112WF = Sc2W112top_WF;
+          elseif lowestW112pos == 4
+              W112WF = Sc4W112top_WF;
+          elseif lowestW112pos == 5
+              W112WF = Sc4triW112_WF;
+          elseif lowestW112pos == 6
+              W112WF = Ba2O4W112_2x2_WF;
+          elseif lowestW112pos == 7
+              W112WF = Ba1Sc1O4W112_WF;
+          elseif lowestW112pos == 8
+              W112WF = Ba2Sc2O4W112_WF;
+          elseif lowestW112pos == 9
+              W112WF = Ba2Sc2O6W112_WF;
+          elseif lowestW112pos == 10
+              W112WF = Ba2Sc2O6halfdecW112_WF;
+          else
+              W112WF = Ba2O4Sc4W112_WF;
           end
+          %}
           
 %%%% assemble data %%%%
           delta_W112_W110 = 0.5*((lowestW112*1.1/lowestW110)-lowestW112/(1.1*lowestW110));
@@ -456,7 +579,7 @@ for i = 1:aa
           highSEbound112 = target112SE+delta_W112_W110;
 
 
-          lowestgammas(j,:) = [lowestW001; lowestW110; lowestW112]; 
+          lowestgammas = [lowestW001; lowestW110; lowestW112]; 
           ratio_W001_W110 = lowestW001/lowestW110;
           ratio_W112_W110 = lowestW112/lowestW110;
             
@@ -468,7 +591,7 @@ for i = 1:aa
             
           if (ratio_W001_W110>lowSEbound001) && (ratio_W001_W110<highSEbound001) ...
                   && (ratio_W112_W110>lowSEbound112) && (ratio_W112_W110<highSEbound112)
-              lowerboundshapegammas(ii,:) = [Temp(i); P_torr(j); ratio_W001_W110; ...
+              lowerboundshapegammas(ii) = [Temp(i); P_torr(j); ratio_W001_W110; ...
                   ratio_W112_W110];
               ii = ii+1;
           end
@@ -500,13 +623,13 @@ for i = 1:aa
         P6 = plot(mu_O,O4W112_gamma,':g','LineWidth',4);
         L6 = 'O-top/W(1 1 2)';
         hold on
-        P7 = yline(W001surfpert_gamma(i,:), 'r', 'LineWidth',4);
+        P7 = yline(W001surfpert_gamma(i), 'r', 'LineWidth',4);
         L7 = 'Bare W(0 0 1)';
         hold on
-        P8 = yline(W110_gamma(i,:), 'b', 'LineWidth',4);
+        P8 = yline(W110_gamma(i), 'b', 'LineWidth',4);
         L8 = 'Bare W(1 1 0)';
         hold on
-        P9 = yline(W112_gamma(i,:), 'g', 'LineWidth',4);
+        P9 = yline(W112_gamma(i), 'g', 'LineWidth',4);
         L9 = 'Bare W(1 1 2)';
         hold on
         P10 = plot(mu_O,Ba2Sc2O8W001_gamma,'-<r','LineWidth',4);
@@ -525,24 +648,24 @@ for i = 1:aa
 %         L14 = '(BaSc)_{1/3} O-top/W(1 1 2)';
 %         hold on
 
-        line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
+        line([Wcutoff(i) Wcutoff(i)], [-10 0.7],'Color','c', ...
             'LineWidth', 3, 'LineStyle','-');
-        text([Wcutoff(i,:) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
+        text([Wcutoff(i) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
         hold on
-        text([Wcutoff(i,:) - 0.2], 0.05, 'W','fontsize', 28, 'Color', 'c');
+        text([Wcutoff(i) - 0.2], 0.05, 'W','fontsize', 28, 'Color', 'c');
         hold on
         
-        line([Bacutoff(i,:) Bacutoff(i,:)], [-10 0.7],'Color','m', ...
+        line([Bacutoff(i) Bacutoff(i)], [-10 0.7],'Color','m', ...
             'LineWidth', 3, 'LineStyle','-');
-        text([Bacutoff(i,:) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
+        text([Bacutoff(i) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
         hold on
-        text([Bacutoff(i,:) - 0.2], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
+        text([Bacutoff(i) - 0.2], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
         
-        line([Sccutoff(i,:) Sccutoff(i,:)], [-10 0.7],'Color','k', ...
+        line([Sccutoff(i) Sccutoff(i)], [-10 0.7],'Color','k', ...
             'LineWidth', 3, 'LineStyle','-');
-        text([Sccutoff(i,:) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
+        text([Sccutoff(i) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
         hold on
-        text([Sccutoff(i,:) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
+        text([Sccutoff(i) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
         
        
         hold off;
@@ -558,10 +681,10 @@ for i = 1:aa
         legend([P1; P2; P3; P4; P5; P6; P7; P8; P9; P10; P11; P12], L1, L2, L3, L4, L5, L6, ...
             L7, L8, L9, L10, L11, L12, 'fontsize', 18, 'Location','northeast','NumColumns',4);
         legend boxon;
-        txt = {['T = ',num2str(Temp(i,:)),' K']};
+        txt = {['T = ',num2str(Temp(i)),' K']};
         text(-7.55,0.105,txt,'fontsize', 35);
         set(gcf, 'Position',  [0, 0, 1500, 800]);
-        saveas(gcf,['cathodesurfpaper_t',num2str(Temp(i,:)),'.png']);
+        saveas(gcf,['cathodesurfpaper_t',num2str(Temp(i)),'.png']);
        %}
     
 end
@@ -569,11 +692,14 @@ end
 save('data.mat','allSEs');
 save('allSEs.mat','allSEs');
 
+
 allSEs(:,10) = areafrac(:,1);
 allSEs(:,11) = areafrac(:,2);
 allSEs(:,12) = areafrac(:,3);
 
-%{
+%points = [1500 1.00E-40 4.556;1500 5.72E-25 1.215;1500 1.63E-19 1.221;...
+%    1500 2.85E-15 1.266;1350 2.85E-15 2.653];
+
 figure
 contourf(P_torr,Temp,plotmu_O,100,'LineColor','none')
 colorbar
@@ -594,10 +720,10 @@ semilogx(r(89:aa,2),r(89:aa,1),'LineWidth',3,'color','magenta') %Ba cutoff
 hold on
 semilogx(s(57:aa,2),s(57:aa,1),'LineWidth',3,'color','cyan') %W cutoff
 hold on
-semilogx(z(111:aa,2),z(111:aa,1),'LineWidth',3,'color','black') %Sc cutoff
+semilogx(z(101:aa,2),z(101:aa,1),'LineWidth',3,'color','black') %Sc cutoff
 hold on
-semilogx(points(:,2),points(:,1),'.',...
-    'color','k','MarkerSize',12);
+%semilogx(points(:,2),points(:,1),'.',...
+%    'color','k','MarkerSize',12);
 ax.LineWidth = 3;
 box on
 xlim([1E-50 1])
@@ -605,6 +731,7 @@ set(gcf, 'Position',  [0, 0, 1500, 800]);
 saveas(gcf,['muocontour.png']);
 %}
 
+%{
 
 for i = 1:(pp-1)
     
@@ -649,7 +776,7 @@ semilogx(r(89:aa,2),r(89:aa,1),'LineWidth',3,'color','magenta') %Ba cutoff
 hold on
 semilogx(s(57:aa,2),s(57:aa,1),'LineWidth',3,'color','cyan') %W cutoff
 hold on
-semilogx(z(111:aa,2),z(111:aa,1),'LineWidth',3,'color','black') %Sc cutoff
+semilogx(z(101:aa,2),z(101:aa,1),'LineWidth',3,'color','black') %Sc cutoff
 hold on
 %semilogx(points(:,2),points(:,1),'.',...
 %    'color','k','MarkerSize',12);
@@ -665,7 +792,7 @@ saveas(gcf,['workfunctioncontour.png']);
 figure
 scatter3(allSEs(:,2),allSEs(:,1),allSEs(:,13),[],allSEs(:,13),'filled')
 hold on
-scatter3(points(:,2),points(:,1),points(:,3))
+%scatter3(points(:,2),points(:,1),points(:,3))
 %colorbar
 xlabel({'P_{O_2} (Torr)'},'fontsize', 28);
 ylabel({'Temperature (K)'},'fontsize', 28);
