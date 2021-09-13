@@ -687,6 +687,7 @@ end
 
 function [F, mu] = ReadFromFile(numunits, sourcefile, E0)
     %Inputs: numunits is the number of atoms in the supercell (int), sourcefile is the name of the input file (string), E0 is the base energy of the cell
+    convertunit = (1/6.022E23)*1000*(1/1.60218E-19); %Unit conversion conversion from Kilojoules to eV
     F = readmatrix(sourcefile);  %Source File
     F = F(:,2);  %Look at the second column of the input file
     F = F*convertunit;  %Convert from kJ to eV
