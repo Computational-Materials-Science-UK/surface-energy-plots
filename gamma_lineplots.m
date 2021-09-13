@@ -474,7 +474,7 @@ for i = 1  % What does this even do?
                 mu_Sc(k,:) = mu_metSc(i,:);
             else 
                 %mu_Sc(j,:) = mu_metSc(i,:);
-                mu_Sc(k,:) = (mu_Sc2O3(i,:)- 3*mu_O(j,:))/2;
+                mu_Sc(k,:) = (mu_Sc2O3(i,:)- 3*mu_O(k,:))/2;
             end
             
             W110_gamma(k,:) = (W110_F(i,:)-(W110_Watoms*mu_W(k,:)))/W110_area;
@@ -493,7 +493,7 @@ for i = 1  % What does this even do?
             W110double_gamma(k,:) = (W110double_F(i,:)-(W110double_Watoms*mu_W(k,:)))/W110double_area;
 
             ScW110double_gamma(k,:) = (ScW110double_F(i,:)-(ScW110double_Watoms*mu_W(k,:)...
-                +ScW110double_Scatoms*mu_Sc(j,:)))/ScW110double_area;
+                +ScW110double_Scatoms*mu_Sc(k,:)))/ScW110double_area;
             
             OScW110double_gamma(k,:) = ((OScW110double_F(i,:)-(OScW110double_Watoms*mu_W(k,:)...
                 +OScW110double_Scatoms*mu_Sc(k,:)+OScW110double_Oatoms*mu_O(k,:)))/OScW110double_area);
