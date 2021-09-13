@@ -15,7 +15,7 @@ W333_numunits = 54;  %Number of molecules per supercell
 W333_F = readmatrix('thermalpropsW333.txt');  %Source File
 W333_F = W333_F(:,2);  %Look at the second column of the input file
 W333_F = W333_F*convertunit; %convert to Kilojoules
-W333_E0 = -.69946699E+03; 
+W333_E0 = -.69946699E+03; %Ground state energy of the box?
 mu_metW = (W333_F+W333_E0)/W333_numunits;
 
 [W333_F, mu_metW]=ReadFromFile(54, 'thermalpropsW333.txt', -.69946699E+03); %Custom Function test case.  If it works I'll replace all readins with it
@@ -69,7 +69,7 @@ Alcutoff = (mu_Al4O6-2*mu_metAl)/3; %Setting the Al/Alumina cutoff
 
 %%%%%%% (001) %%%%%%%
 
-W001surfunpert_area = 80.5;
+W001surfunpert_area = 80.5; %Units?
 W001surfunpert_Watoms = 64;
 W001surfunpert_F = readmatrix('thermalpropsW001-surfunpert.txt');
 W001surfunpert_F = W001surfunpert_F(:,2);
@@ -102,7 +102,7 @@ Ba4O8W001_area = 80.5;
 Ba4O8W001_Watoms = 52;
 Ba4O8W001_Baatoms = 4;
 Ba4O8W001_Oatoms = 8;
-Ba4O8W001_config = 5.808E-6;
+Ba4O8W001_config = 5.808E-6; %What is this?  What does it do?
 Ba4O8W001_F = readmatrix('thermalpropsBa4O8-W001.txt');
 Ba4O8W001_F = Ba4O8W001_F(:,2);
 Ba4O8W001_F = Ba4O8W001_F*convertunit;
@@ -132,6 +132,35 @@ Ba2O8W001_F = Ba2O8W001_F*convertunit;
 Ba2O8W001_E0 = -.73520456E+03;
 Ba2O8W001_F = Ba2O8W001_F+Ba2O8W001_E0;
 
+%%% Shankar's 1x1 001 Slabs %%%
+%Bare 001 W slab
+W001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
+W001double_Watoms = 16;
+W001double_F = readmatrix('thermalpropsO-W001.txt');
+W001double_F = W001double_F(:,2);
+W001double_F = W001double_F*convertunit;
+W001double_E0 = -.20231144E+03;
+W001double_F = W001double_F+W001double_E0;
+%Sc Covered 001 W slab
+ScW001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
+ScW001double_Watoms = 16;
+ScW001double_Scatoms = 2;
+ScW001double_F = readmatrix('thermalpropsO-W001.txt');
+ScW001double_F = ScW001double_F(:,2);
+ScW001double_F = ScW001double_F*convertunit;
+ScW001double_E0 = -2.1860319E+02;
+ScW001double_F = ScW001double_F+ScW001double_E0;
+%O-Sc-W 001 slab
+OScW001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
+OScW001double_Watoms = 16;
+OScW001double_Scatoms = 2;
+OScW001double_Oatoms = 2;
+OScW001double_F = readmatrix('thermalpropsO-W001.txt');
+OScW001double_F = OScW001double_F(:,2);
+OScW001double_F = OScW001double_F*convertunit;
+OScW001double_E0 = -2.3987622E+02;
+OScW001double_F = OScW001double_F+OScW001double_E0;
+%Ba-O-Sc-W 001 slab goes here
 
 %%%%%%% (110) %%%%%%%
 
@@ -177,6 +206,35 @@ Ba2Sc2O8W110_F = Ba2Sc2O8W110_F*convertunit;
 Ba2Sc2O8W110_E0 = -.54556299E+03;
 Ba2Sc2O8W110_F = Ba2Sc2O8W110_F+Ba2Sc2O8W110_E0;
 
+%%% Shankar's 1x1 110 Slabs %%%
+%Bare 110 W slab
+W110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
+W110double_Watoms = 12;
+W110double_F = readmatrix('thermalpropsO-W001.txt');
+W110double_F = W110double_F(:,2);
+W110double_F = W110double_F*convertunit;
+W110double_E0 = -1.4977044E+02;
+W110double_F = W110double_F+W110double_E0;
+%Sc Covered 110 W slab
+ScW110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
+ScW110double_Watoms = 12;
+ScW110double_Scatoms = 4;
+ScW110double_F = readmatrix('thermalpropsO-W001.txt');
+ScW110double_F = ScW110double_F(:,2);
+ScW110double_F = ScW110double_F*convertunit;
+ScW110double_E0 = -1.7655339E+02;
+ScW110double_F = ScW110double_F+ScW110double_E0;
+%O-Sc-W 110 slab
+OScW110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
+OScW110double_Watoms = 12;
+OScW110double_Scatoms = 4;
+OScW110double_Oatoms = 4;
+OScW110double_F = readmatrix('thermalpropsO-W001.txt');
+OScW110double_F = OScW110double_F(:,2);
+OScW110double_F = OScW110double_F*convertunit;
+OScW110double_E0 = -2.1577504E+02;
+OScW110double_F = OScW110double_F+OScW110double_E0;
+%Ba-O-Sc-W 110 slab goes here
 
 %%%%%%% (112) %%%%%%%
 
@@ -268,11 +326,41 @@ Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F+Ba2Sc2O6halfbareW112_E0;
 Ba2Sc2O6halfbareW112_gamma = (Ba2Sc2O6halfbareW112_F-Ba2Sc2O6halfbareW112_Watoms*mu_metW)/...
     Ba2Sc2O6halfbareW112_area;
 
+%%% Shankar's 1x1 112 Slabs %%%
+%Bare 112 W slab
+W112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
+W112double_Watoms = 22;
+W112double_F = readmatrix('thermalpropsO-W001.txt');
+W112double_F = W112double_F(:,2);
+W112double_F = W112double_F*convertunit;
+W112double_E0 = -2.7446276E+02;
+W112double_F = W112double_F+W112double_E0;
+%Sc Covered 112 W slab
+ScW112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
+ScW112double_Watoms = 22;
+ScW112double_Scatoms = 4;
+ScW112double_F = readmatrix('thermalpropsO-W001.txt');
+ScW112double_F = ScW112double_F(:,2);
+ScW112double_F = ScW112double_F*convertunit;
+ScW112double_E0 = -3.0382577E+02;
+ScW112double_F = ScW112double_F+ScW112double_E0;
+%O-Sc-W 112 slab
+OScW112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
+OScW112double_Watoms = 22;
+OScW112double_Scatoms = 4;
+OScW112double_Oatoms = 4;
+OScW112double_F = readmatrix('thermalpropsO-W001.txt');
+OScW112double_F = OScW112double_F(:,2);
+OScW112double_F = OScW112double_F*convertunit;
+OScW112double_E0 = -3.4242413E+02;
+OScW112double_F = OScW112double_F+OScW112double_E0;
+%Ba-O-Sc-W 110 slab goes here
+
 %%%%%%% Plotting %%%%%%%
 
 
 for i = 1
-    
+        %%% I think this is the 001 surface energy discovery place %%%
         for j = 1:length(mu_O)
             
             if mu_O(j,:)< Bacutoff(i,:)
@@ -306,9 +394,19 @@ for i = 1
             
             Ba2O8W001_gamma(j,:) = ((Ba2O8W001_F(i,:)-(Ba2O8W001_Watoms*mu_W(j,:)...
                 +Ba2O8W001_Baatoms*mu_Ba(j,:)+Ba2O8W001_Oatoms*mu_O(j,:)))/Ba2O8W001_area)+(Temp(i)*Ba2O8W001_config);
+
+            %%% Shankar's 1x1 001 W slabs %%%
+            W001double_gamma(j,:) = (W001double_F(i,:)-(W001double_Watoms*mu_W(j,:)))/W001double_area;
+
+            ScW001double_gamma(j,:) = (ScW001double_F(i,:)-(ScW001double_Watoms*mu_W(j,:)...
+                +ScW001double_Scatoms*mu_Sc(j,:)))/ScW001double_area;
+            
+            OScW001double_gamma(j,:) = ((OScW001double_F(i,:)-(OScW001double_Watoms*mu_W(j,:)...
+                +OScW001double_Scatoms*mu_Ba(j,:)+OScW001double_Oatoms*mu_O(j,:)))/OScW001double_area);
            
         end
         
+        %%% Here's the 110 Section %%%
         for k = 1:length(mu_O)
             
             if mu_O(k,:) < Bacutoff(i,:)
@@ -338,6 +436,15 @@ for i = 1
             Ba2Sc2O8W110_gamma(k,:) = ((Ba2Sc2O8W110_F(i,:)-(Ba2Sc2O8W110_Watoms*mu_W(k,:)...
                 +Ba2Sc2O8W110_Baatoms*mu_Ba(k,:)+Ba2Sc2O8W110_Oatoms*mu_O(k,:)...
                 +Ba2Sc2O8W110_Scatoms*mu_Sc(k,:)))/Ba2Sc2O8W110_area)+(Temp(i)*Ba2Sc2O8W110_config);
+
+            %%% Shankar's 1x1 110 W slabs %%%
+            W110double_gamma(j,:) = (W110double_F(i,:)-(W110double_Watoms*mu_W(j,:)))/W110double_area;
+
+            ScW110double_gamma(j,:) = (ScW110double_F(i,:)-(ScW110double_Watoms*mu_W(j,:)...
+                +ScW110double_Scatoms*mu_Sc(j,:)))/ScW110double_area;
+            
+            OScW110double_gamma(j,:) = ((OScW110double_F(i,:)-(OScW110double_Watoms*mu_W(j,:)...
+                +OScW110double_Scatoms*mu_Ba(j,:)+OScW110double_Oatoms*mu_O(j,:)))/OScW110double_area);
         end
         
         for n = 1:length(mu_O)
@@ -382,6 +489,15 @@ for i = 1
                 +Ba2Sc2O6halfdecW112_Baatoms*mu_Ba(n,:)+Ba2Sc2O6halfdecW112_Scatoms*mu_Sc(n,:)+...
                 Ba2Sc2O6halfdecW112_Oatoms*mu_O(n,:)))/Ba2Sc2O6halfdecW112_area)+(Temp(i)*Ba2Sc2O6halfdecW112_config))...
                 -Ba2Sc2O6halfbareW112_gamma(i);
+
+            %%% Shankar's 1x1 112 W slabs %%%
+            W112double_gamma(j,:) = (W112double_F(i,:)-(W112double_Watoms*mu_W(j,:)))/W112double_area;
+
+            ScW112double_gamma(j,:) = (ScW112double_F(i,:)-(ScW112double_Watoms*mu_W(j,:)...
+                +ScW112double_Scatoms*mu_Sc(j,:)))/ScW112double_area;
+            
+            OScW112double_gamma(j,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(j,:)...
+                +OScW112double_Scatoms*mu_Ba(j,:)+OScW112double_Oatoms*mu_O(j,:)))/OScW112double_area);
                   
         end
         
