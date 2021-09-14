@@ -467,12 +467,10 @@ for i = 1
                 +Ba2Sc2O6halfdecW112_Baatoms*mu_Ba(n,:)+Ba2Sc2O6halfdecW112_Scatoms*mu_Sc(n,:)+...
                 Ba2Sc2O6halfdecW112_Oatoms*mu_O(n,:)))/Ba2Sc2O6halfdecW112_area)+(Temp(i)*Ba2Sc2O6halfdecW112_config))...
                 -Ba2Sc2O6halfbareW112_gamma(i);
-<<<<<<< HEAD
             
             Ba2O4Sc4W112_gamma(n,:) = ((Ba2O4Sc4W112_F(i,:)-(Ba2O4Sc4W112_Watoms*mu_W(n,:)...
                 +Ba2O4Sc4W112_Baatoms*mu_Ba(n,:)+Ba2O4Sc4W112_Scatoms*mu_Sc(n,:)+...
                 Ba2O4Sc4W112_Oatoms*mu_O(n,:)))/Ba2O4Sc4W112_area);
-=======
 
             %%% Shankar's 1x1 112 W slabs %%%
             W112double_gamma(j,:) = (W112double_F(i,:)-(W112double_Watoms*mu_W(j,:)))/W112double_area;
@@ -482,7 +480,6 @@ for i = 1
             
             OScW112double_gamma(j,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(j,:)...
                 +OScW112double_Scatoms*mu_Ba(j,:)+OScW112double_Oatoms*mu_O(j,:)))/OScW112double_area);
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
                   
         end
         
@@ -602,6 +599,7 @@ end
 
 function [F, mu] = ReadFromFile(numunits, sourcefile, E0)
     %Inputs: numunits is the number of atoms in the supercell (int), sourcefile is the name of the input file (string), E0 is the base energy of the cell
+    convertunit = (1/6.022E23)*1000*(1/1.60218E-19); %Unit conversion conversion from Kilojoules to eV
     F = readmatrix(sourcefile);  %Source File
     F = F(:,2);  %Look at the second column of the input file
     F = F*convertunit;  %Convert from kJ to eV
