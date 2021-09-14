@@ -135,6 +135,7 @@ Ba2O8W001_F = Ba2O8W001_F*convertunit;
 Ba2O8W001_E0 = -.73520456E+03;
 Ba2O8W001_F = Ba2O8W001_F+Ba2O8W001_E0;
 
+%{
 %%% Shankar's 1x1 001 Slabs %%%
 %Bare 001 W slab
 W001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
@@ -164,6 +165,7 @@ OScW001double_F = OScW001double_F*convertunit;
 OScW001double_E0 = -2.3987622E+02;
 OScW001double_F = OScW001double_F+OScW001double_E0;
 %Ba-O-Sc-W 001 slab goes here
+%}
 
 %%%%%%% (110) %%%%%%%
 
@@ -209,6 +211,7 @@ Ba2Sc2O8W110_F = Ba2Sc2O8W110_F*convertunit;
 Ba2Sc2O8W110_E0 = -.54556299E+03;
 Ba2Sc2O8W110_F = Ba2Sc2O8W110_F+Ba2Sc2O8W110_E0;
 
+%{
 %%% Shankar's 1x1 110 Slabs %%%
 %Bare 110 W slab
 W110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
@@ -238,6 +241,7 @@ OScW110double_F = OScW110double_F*convertunit;
 OScW110double_E0 = -2.1577504E+02;
 OScW110double_F = OScW110double_F+OScW110double_E0;
 %Ba-O-Sc-W 110 slab goes here
+%}
 
 %%%%%%% (112) %%%%%%%
 
@@ -402,7 +406,7 @@ OScW112double_F = OScW112double_F+OScW112double_E0;
 %%%%%%% Plotting %%%%%%%
 
 
-for i = 125
+for i = 1
         
         %%%%%% 0 0 1 %%%%%%
         for j = 1:length(mu_O)
