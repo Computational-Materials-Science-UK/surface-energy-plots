@@ -10,14 +10,14 @@ mu_O = transpose(mu_O);
 
 %%%%%%% bulk %%%%%%%
 
-W333_numunits = 54;  %Number of molecules per supercell
+W333_numunits = 54;  %Number of units per supercell
 W333_F = readmatrix('thermalpropsW333.txt');  %Source File
 W333_F = W333_F(:,2);  %Look at the second column of the input file
-W333_F = W333_F*convertunit; %convert to Kilojoules
-W333_E0 = -.69946699E+03; %Ground state energy of the box?
+W333_F = W333_F*convertunit; %convert to kj
+W333_E0 = -.69946699E+03; %Ground state energy
 mu_metW = (W333_F+W333_E0)/W333_numunits;
 
-[W333_F, mu_metW]=ReadFromFile(54, 'thermalpropsW333.txt', -.69946699E+03); %Custom Function test case.  If it works I'll replace all readins with it
+%[W333_F, mu_metW]=ReadFromFile(54, 'thermalpropsW333.txt', -.69946699E+03); %Custom Function test case.  If it works I'll replace all readins with it
 
 WO3222_numunits = 16;
 WO3222_F = readmatrix('thermalpropsWO3222.txt');
@@ -64,19 +64,15 @@ mu_Sc2O3 = (Sc2O3111_F+Sc2O3111_E0)/Sc2O3111_numunits;
 
 Sccutoff = (mu_Sc2O3-2*mu_metSc)/3;
 
-<<<<<<< HEAD
-
-=======
+%{
 [Al222_F, mu_metAl]=ReadFromFile(32, 'thermalpropsAl222.txt', -.11970109E+03); %Bulk aluminum properties
-
 [Al4O6_F, mu_Al4O6]=ReadFromFile(16, 'thermalpropsAl4O6.txt', -.59797974E+03); %Bulk alumina properties
-
 Alcutoff = (mu_Al4O6-2*mu_metAl)/3; %Setting the Al/Alumina cutoff
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
+%}
 
 %%%%%%% (001) %%%%%%%
 
-W001surfunpert_area = 80.5; %Units?
+W001surfunpert_area = 80.5; 
 W001surfunpert_Watoms = 64;
 W001surfunpert_F = readmatrix('thermalpropsW001-surfunpert.txt');
 W001surfunpert_F = W001surfunpert_F(:,2);
@@ -360,7 +356,6 @@ Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F+Ba2Sc2O6halfbareW112_E0;
 Ba2Sc2O6halfbareW112_gamma = (Ba2Sc2O6halfbareW112_F-Ba2Sc2O6halfbareW112_Watoms*mu_metW)/...
     Ba2Sc2O6halfbareW112_area;
 
-<<<<<<< HEAD
 Ba2O4Sc4W112_area = 49.27;
 Ba2O4Sc4W112_Watoms = 38;
 Ba2O4Sc4W112_Scatoms = 4;
@@ -371,7 +366,8 @@ Ba2O4Sc4W112_F = Ba2O4Sc4W112_F(:,2);
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F*convertunit;
 Ba2O4Sc4W112_E0 = -.55767079E+03;
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
-=======
+
+%{
 %%% Shankar's 1x1 112 Slabs %%%
 %Bare 112 W slab
 W112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
@@ -401,13 +397,14 @@ OScW112double_F = OScW112double_F*convertunit;
 OScW112double_E0 = -3.4242413E+02;
 OScW112double_F = OScW112double_F+OScW112double_E0;
 %Ba-O-Sc-W 110 slab goes here
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
+%}
 
 %%%%%%% Plotting %%%%%%%
 
 
-for i = 1
-        %%% I think this is the 001 surface energy discovery place %%%
+for i = 125
+        
+        %%%%%% 0 0 1 %%%%%%
         for j = 1:length(mu_O)
             
             if mu_O(j,:)< Bacutoff(i,:)
@@ -447,6 +444,7 @@ for i = 1
             Ba2O8W001_gamma(j,:) = ((Ba2O8W001_F(i,:)-(Ba2O8W001_Watoms*mu_W(j,:)...
                 +Ba2O8W001_Baatoms*mu_Ba(j,:)+Ba2O8W001_Oatoms*mu_O(j,:)))/Ba2O8W001_area)+(Temp(i)*Ba2O8W001_config);
 
+            %{
             %%% Shankar's 1x1 001 W slabs %%%
             W001double_gamma(j,:) = (W001double_F(i,:)-(W001double_Watoms*mu_W(j,:)))/W001double_area;
 
@@ -455,10 +453,10 @@ for i = 1
             
             OScW001double_gamma(j,:) = ((OScW001double_F(i,:)-(OScW001double_Watoms*mu_W(j,:)...
                 +OScW001double_Scatoms*mu_Ba(j,:)+OScW001double_Oatoms*mu_O(j,:)))/OScW001double_area);
-           
+            %}
         end
         
-        %%% Here's the 110 Section %%%
+        %%%%%% 1 1 0 %%%%%%
         for k = 1:length(mu_O)
             
             if mu_O(k,:) < Bacutoff(i,:)
@@ -494,6 +492,7 @@ for i = 1
                 +Ba2Sc2O8W110_Baatoms*mu_Ba(k,:)+Ba2Sc2O8W110_Oatoms*mu_O(k,:)...
                 +Ba2Sc2O8W110_Scatoms*mu_Sc(k,:)))/Ba2Sc2O8W110_area)+(Temp(i)*Ba2Sc2O8W110_config);
 
+            %{
             %%% Shankar's 1x1 110 W slabs %%%
             W110double_gamma(j,:) = (W110double_F(i,:)-(W110double_Watoms*mu_W(j,:)))/W110double_area;
 
@@ -502,8 +501,10 @@ for i = 1
             
             OScW110double_gamma(j,:) = ((OScW110double_F(i,:)-(OScW110double_Watoms*mu_W(j,:)...
                 +OScW110double_Scatoms*mu_Ba(j,:)+OScW110double_Oatoms*mu_O(j,:)))/OScW110double_area);
+            %}
         end
         
+        %%%%%% 1 1 2 %%%%%%
         for n = 1:length(mu_O)
             
             if mu_O(n,:) < Bacutoff(i,:)
@@ -564,7 +565,8 @@ for i = 1
             Ba2O4Sc4W112_gamma(n,:) = ((Ba2O4Sc4W112_F(i,:)-(Ba2O4Sc4W112_Watoms*mu_W(n,:)...
                 +Ba2O4Sc4W112_Baatoms*mu_Ba(n,:)+Ba2O4Sc4W112_Scatoms*mu_Sc(n,:)+...
                 Ba2O4Sc4W112_Oatoms*mu_O(n,:)))/Ba2O4Sc4W112_area);
-
+            
+            %{
             %%% Shankar's 1x1 112 W slabs %%%
             W112double_gamma(j,:) = (W112double_F(i,:)-(W112double_Watoms*mu_W(j,:)))/W112double_area;
 
@@ -574,6 +576,7 @@ for i = 1
             OScW112double_gamma(j,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(j,:)...
                 +OScW112double_Scatoms*mu_Ba(j,:)+OScW112double_Oatoms*mu_O(j,:)))/OScW112double_area);
                   
+            %}
         end
         
         %P is plot, L is label
@@ -681,8 +684,8 @@ for i = 1
         legend([P1; P2; P3; P4; P5; P6; P7; P8; P9; P10; P11; P12; P13; ...
             P15; P16; P17; P18; P19; P20], L1, L2, L3, L4, L5, L6, L7, L8, L9, ...
             L10, L11, L12, L13, L15, L16, L17, L18, L19, L20, 'fontsize', 18, ...
-            'Location','southoutside','NumColumns',5);
-        legend off;
+            'Location','southoutside','NumColumns',6);
+        %legend off;
         txt = {['T = ',num2str(Temp(i,:)),' K']};
         text(-11.75,0.05,txt,'fontsize', 35);
         set(gcf, 'Position',  [0, 0, 1500, 800]);
@@ -690,6 +693,7 @@ for i = 1
       
 end
 
+%{
 function [F, mu] = ReadFromFile(numunits, sourcefile, E0)
     %Inputs: numunits is the number of atoms in the supercell (int), sourcefile is the name of the input file (string), E0 is the base energy of the cell
     convertunit = (1/6.022E23)*1000*(1/1.60218E-19); %Unit conversion conversion from Kilojoules to eV
@@ -698,3 +702,4 @@ function [F, mu] = ReadFromFile(numunits, sourcefile, E0)
     F = F*convertunit;  %Convert from kJ to eV
     mu = (F+E0)/numunits;  %find the chemical reactivity
 end
+%}
