@@ -2,12 +2,7 @@ clear all;
 close all;
 
 
-<<<<<<< HEAD
 Temp = linspace(0,2000,201);
-=======
-
-Temp = linspace(0,2000,201); %Create a temperature array of 201 units from 0 K to 2000 K in increments of 10 K- Notably this is (and must be) the same increment as in the Thermal Props files
->>>>>>> b22f8d397299c2d165925d680d0f2e685a601615
 Temp = transpose(Temp);
 convertunit = (1/6.022E23)*1000*(1/1.60218E-19); %Unit conversion conversion from Kilojoules to eV
 mu_O = linspace(-12,-6.5,111);
