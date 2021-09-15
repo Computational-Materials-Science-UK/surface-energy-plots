@@ -1,8 +1,6 @@
 clear all;
 close all;
 
-load areafrac.mat
-
 aa = 201;
 cc = 166;
 Temp = linspace(0,2000,aa);
@@ -167,7 +165,7 @@ W110_F = W110_F(:,2);
 W110_F = W110_F*convertunit;
 W110_E0 = -.45508870E+03;
 W110_F = W110_F+W110_E0;
-W110_WF = 4.81;
+bareW110_WF = 4.81;
 
 O8W110_area = 56.88;
 O8W110_Watoms = 36;
@@ -214,7 +212,7 @@ W112_F = W112_F(:,2);
 W112_F = W112_F*convertunit;
 W112_E0 = -.43013015E+03;
 W112_F = W112_F+W112_E0;
-W112_WF = 4.33;
+bareW112_WF = 4.33;
 
 O4W112_area = 49.27;
 O4W112_Watoms = 38;
@@ -329,6 +327,7 @@ Ba2Sc2O6halfbareW112_E0 = -.82364685E+03;
 Ba2Sc2O6halfbareW112_F = Ba2Sc2O6halfbareW112_F+Ba2Sc2O6halfbareW112_E0;
 Ba2Sc2O6halfbareW112_gamma = (Ba2Sc2O6halfbareW112_F-Ba2Sc2O6halfbareW112_Watoms*mu_metW)/...
     Ba2Sc2O6halfbareW112_area;
+Ba2Sc2O6halfbareW112_WF = 1.45;
 
 Ba2O4Sc4W112_area = 49.27;
 Ba2O4Sc4W112_Watoms = 38;
@@ -424,24 +423,26 @@ for i = 1:aa
                 Sc_O = true;
             end
             %}
+            
  %%%% 001 %%%%
  
             W001surfpert_gamma(j) = (W001surfpert_F(i)-...
-                (W001surfpert_Watoms*mu_W(j)))/W001surfpert_area; 
+                (W001surfpert_Watoms*mu_W(j)))/W001surfpert_area;
             
             Ba4O8W001_gamma(j) = ((Ba4O8W001_F(i)-(Ba4O8W001_Watoms*mu_W(j)...
-                +Ba4O8W001_Baatoms*mu_Ba(j)+Ba4O8W001_Oatoms*SE_mu_O(j)))/Ba4O8W001_area)+(Temp(i)*Ba4O8W001_config);
+                +Ba4O8W001_Baatoms*mu_Ba(j)+Ba4O8W001_Oatoms*SE_mu_O(j)))/...
+                Ba4O8W001_area)+(Temp(i)*Ba4O8W001_config);
             
             Ba2Sc2O8W001_gamma(j) = ((Ba2Sc2O8W001_F(i)-(Ba2Sc2O8W001_Watoms*mu_W(j)...
                 +Ba2Sc2O8W001_Baatoms*mu_Ba(j)+Ba2Sc2O8W001_Oatoms*SE_mu_O(j)+Ba2Sc2O8W001_Scatoms*mu_Sc(j)))/...
                 Ba2Sc2O8W001_area+(Temp(i)*Ba2Sc2O8W001_config));
             
             O8W001_gamma(j) = (O8W001_F(i)-(O8W001_Watoms*mu_W(j)...
-                +O8W001_Oatoms*SE_mu_O(j)))/O8W001_area;  
+                +O8W001_Oatoms*SE_mu_O(j)))/O8W001_area;
             
             Ba2O8W001_gamma(j) = ((Ba2O8W001_F(i)-(Ba2O8W001_Watoms*mu_W(j)...
-                +Ba2O8W001_Baatoms*mu_Ba(j)+Ba2O8W001_Oatoms*SE_mu_O(j)))/Ba2O8W001_area)+(Temp(i)*Ba2O8W001_config);
-            
+                +Ba2O8W001_Baatoms*mu_Ba(j)+Ba2O8W001_Oatoms*SE_mu_O(j)))/...
+                Ba2O8W001_area)+(Temp(i)*Ba2O8W001_config);
             
             
             W001set = [W001surfpert_gamma(j); Ba4O8W001_gamma(j); ...
@@ -482,7 +483,7 @@ for i = 1:aa
             lowestW110pos = find(W110set==min(W110set));
             
             if lowestW110pos == 1
-                W110WF = W110_WF;
+                W110WF = bareW110_WF;
             elseif lowestW110pos == 2
                 W110WF = Ba2O8W110_WF;
             elseif lowestW110pos == 3
@@ -544,7 +545,7 @@ for i = 1:aa
           
           
           if lowestW112pos == 1
-              W112WF = W112_WF;
+              W112WF = bareW112_WF;
           elseif lowestW112pos == 2
               W112WF = O4W112_WF;
           elseif lowestW112pos == 3
@@ -610,6 +611,7 @@ end
 save('data.mat','allSEs');
 save('allSEs.mat','allSEs');
 
+load areafrac.mat
 
 allSEs(:,10) = areafrac(:,1);
 allSEs(:,11) = areafrac(:,2);

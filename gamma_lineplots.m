@@ -89,8 +89,7 @@ W001surfpert_F = W001surfpert_F(:,2);
 W001surfpert_F = W001surfpert_F*convertunit;
 W001surfpert_E0 = -.81006004E+03;
 W001surfpert_F = W001surfpert_F+W001surfpert_E0;
-%W001surfpert_gamma = (W001surfpert_F-W001surfpert_Watoms*mu_metW)/...
-   % W001surfpert_area;
+W001surfpert_WF = 4.48;
 
 O8W001_area = 80.5;
 O8W001_Watoms = 52;
@@ -100,6 +99,7 @@ O8W001_F = O8W001_F(:,2);
 O8W001_F = O8W001_F*convertunit;
 O8W001_E0 = -.72150756E+03;
 O8W001_F = O8W001_F+O8W001_E0;
+O8W001_WF = 7.63;
 
 Ba4O8W001_area = 80.5; 
 Ba4O8W001_Watoms = 52;
@@ -111,6 +111,7 @@ Ba4O8W001_F = Ba4O8W001_F(:,2);
 Ba4O8W001_F = Ba4O8W001_F*convertunit;
 Ba4O8W001_E0 = -.74413878E+03;
 Ba4O8W001_F = Ba4O8W001_F+Ba4O8W001_E0;
+Ba4O8W001_WF = 2.47;
 
 Ba2Sc2O8W001_area = 80.5;
 Ba2Sc2O8W001_Watoms = 52;
@@ -123,6 +124,7 @@ Ba2Sc2O8W001_F = Ba2Sc2O8W001_F(:,2);
 Ba2Sc2O8W001_F = Ba2Sc2O8W001_F*convertunit;
 Ba2Sc2O8W001_E0 = -.75521094E+03;
 Ba2Sc2O8W001_F = Ba2Sc2O8W001_F+Ba2Sc2O8W001_E0;
+Ba2Sc2O8W001_WF = 0.82;
 
 Ba2O8W001_area = 80.5; 
 Ba2O8W001_Watoms = 52;
@@ -134,6 +136,7 @@ Ba2O8W001_F = Ba2O8W001_F(:,2);
 Ba2O8W001_F = Ba2O8W001_F*convertunit;
 Ba2O8W001_E0 = -.73520456E+03;
 Ba2O8W001_F = Ba2O8W001_F+Ba2O8W001_E0;
+Ba2O8W001_WF = 1.23;
 
 %{
 %%% Shankar's 1x1 001 Slabs %%%
@@ -176,8 +179,7 @@ W110_F = W110_F(:,2);
 W110_F = W110_F*convertunit;
 W110_E0 = -.45508870E+03;
 W110_F = W110_F+W110_E0;
-%W110_gamma = (W110_F-W110_Watoms*mu_metW)/...
-%    W110_area;
+W110_WF = 4.81;
 
 O8W110_area = 56.88;
 O8W110_Watoms = 36;
@@ -187,6 +189,7 @@ O8W110_F = O8W110_F(:,2);
 O8W110_F = O8W110_F*convertunit;
 O8W110_E0 = -.52503875E+03;
 O8W110_F = O8W110_F+O8W110_E0;
+O8W110_WF = 7.27;
 
 Ba2O8W110_area = 56.88; 
 Ba2O8W110_Watoms = 36;
@@ -198,6 +201,7 @@ Ba2O8W110_F = Ba2O8W110_F(:,2);
 Ba2O8W110_F = Ba2O8W110_F*convertunit;
 Ba2O8W110_E0 = -.53288599E+03;
 Ba2O8W110_F = Ba2O8W110_F+Ba2O8W110_E0;
+Ba2O8W110_WF = 2.67;
 
 Ba2Sc2O8W110_area = 56.88; 
 Ba2Sc2O8W110_Watoms = 36;
@@ -210,6 +214,7 @@ Ba2Sc2O8W110_F = Ba2Sc2O8W110_F(:,2);
 Ba2Sc2O8W110_F = Ba2Sc2O8W110_F*convertunit;
 Ba2Sc2O8W110_E0 = -.54556299E+03;
 Ba2Sc2O8W110_F = Ba2Sc2O8W110_F+Ba2Sc2O8W110_E0;
+Ba2Sc2O8W110_WF = 2.47;
 
 %{
 %%% Shankar's 1x1 110 Slabs %%%
@@ -252,8 +257,7 @@ W112_F = W112_F(:,2);
 W112_F = W112_F*convertunit;
 W112_E0 = -.43013015E+03;
 W112_F = W112_F+W112_E0;
-%W112_gamma = (W112_F-W112_Watoms*mu_metW)/...
-%    W112_area;
+W112_WF = 4.33;
 
 O4W112_area = 49.27;
 O4W112_Watoms = 38;
@@ -263,6 +267,7 @@ O4W112_F = O4W112_F(:,2);
 O4W112_F = O4W112_F*convertunit;
 O4W112_E0 = -.51392254E+03;
 O4W112_F = O4W112_F+O4W112_E0;
+O4W112_WF = 7.94;
 
 Sc2W112top_area = 49.27;
 Sc2W112top_Watoms = 38;
@@ -272,6 +277,7 @@ Sc2W112top_F = Sc2W112top_F(:,2);
 Sc2W112top_F = Sc2W112top_F*convertunit;
 Sc2W112top_E0 = -.49288297E+03;
 Sc2W112top_F = Sc2W112top_F+Sc2W112top_E0;
+Sc2W112top_WF= 2.887924;
 
 Sc4W112top_area = 49.27;
 Sc4W112top_Watoms = 38;
@@ -281,6 +287,7 @@ Sc4W112top_F = Sc4W112top_F(:,2);
 Sc4W112top_F = Sc4W112top_F*convertunit;
 Sc4W112top_E0 = -.50486328E+03;
 Sc4W112top_F = Sc4W112top_F+Sc4W112top_E0;
+Sc4W112top_WF = 3.4339847;
 
 Sc4triW112_area = 49.27;
 Sc4triW112_Watoms = 38;
@@ -290,6 +297,7 @@ Sc4triW112_F = Sc4triW112_F(:,2);
 Sc4triW112_F = Sc4triW112_F*convertunit;
 Sc4triW112_E0 = -.51116579E+03;
 Sc4triW112_F = Sc4triW112_F+Sc4triW112_E0;
+Sc4triW112_WF = 2.6720228;
 
 Ba2O4W112_2x2_area = 98.533; 
 Ba2O4W112_2x2_Watoms = 76;
@@ -301,6 +309,7 @@ Ba2O4W112_2x2_F = Ba2O4W112_2x2_F(:,2);
 Ba2O4W112_2x2_F = Ba2O4W112_2x2_F*convertunit;
 Ba2O4W112_2x2_E0 = -.10547239E+04;
 Ba2O4W112_2x2_F = Ba2O4W112_2x2_F+Ba2O4W112_2x2_E0;
+Ba2O4W112_2x2_WF = 1.20;
 
 Ba1Sc1O4W112_area = 98.533;
 Ba1Sc1O4W112_Watoms = 76;
@@ -313,6 +322,7 @@ Ba1Sc1O4W112_F = Ba1Sc1O4W112_F(:,2);
 Ba1Sc1O4W112_F = Ba1Sc1O4W112_F*convertunit;
 Ba1Sc1O4W112_E0 = -.10629497E+04;
 Ba1Sc1O4W112_F = Ba1Sc1O4W112_F+Ba1Sc1O4W112_E0;
+Ba1Sc1O4W112_WF = 2.2;
 
 Ba2Sc2O4W112_area = 98.533;
 Ba2Sc2O4W112_Watoms = 76;
@@ -325,6 +335,7 @@ Ba2Sc2O4W112_F = Ba2Sc2O4W112_F(:,2);
 Ba2Sc2O4W112_F = Ba2Sc2O4W112_F*convertunit;
 Ba2Sc2O4W112_E0 = -.10807918E+04;
 Ba2Sc2O4W112_F = Ba2Sc2O4W112_F+Ba2Sc2O4W112_E0;
+Ba2Sc2O4W112_WF = 2.45;
 
 Ba2Sc2O6W112_area = 147.7998;
 Ba2Sc2O6W112_Watoms = 114;
@@ -337,6 +348,7 @@ Ba2Sc2O6W112_F = Ba2Sc2O6W112_F(:,2);
 Ba2Sc2O6W112_F = Ba2Sc2O6W112_F*convertunit;
 Ba2Sc2O6W112_E0 = -.16071218E+04;
 Ba2Sc2O6W112_F = Ba2Sc2O6W112_F+Ba2Sc2O6W112_E0;
+Ba2Sc2O6W112_WF = 1.45;
 
 Ba2Sc2O6halfdecW112_area = 147.7998/2;
 Ba2Sc2O6halfdecW112_Watoms = 72;
@@ -349,6 +361,7 @@ Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F(:,2);
 Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F*convertunit;
 Ba2Sc2O6halfdecW112_E0 = -.98208329E+03;
 Ba2Sc2O6halfdecW112_F = Ba2Sc2O6halfdecW112_F+Ba2Sc2O6halfdecW112_E0;
+Ba2Sc2O6halfdecW112_WF = 1.45;
 
 Ba2Sc2O6halfbareW112_area = 147.7998; 
 Ba2Sc2O6halfbareW112_Watoms = 66;
@@ -370,6 +383,7 @@ Ba2O4Sc4W112_F = Ba2O4Sc4W112_F(:,2);
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F*convertunit;
 Ba2O4Sc4W112_E0 = -.55767079E+03;
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
+Ba2O4Sc4W112_WF = 1.92933196;
 
 %{
 %%% Shankar's 1x1 112 Slabs %%%
@@ -406,7 +420,7 @@ OScW112double_F = OScW112double_F+OScW112double_E0;
 %%%%%%% Plotting %%%%%%%
 
 
-for i = 1
+for i = 101
         
         %%%%%% 0 0 1 %%%%%%
         for j = 1:length(mu_O)
@@ -433,7 +447,8 @@ for i = 1
             end
            
             W001surfpert_gamma(j,:) = (W001surfpert_F(i,:)-...
-                (W001surfpert_Watoms*mu_W(j,:)))/W001surfpert_area; 
+                (W001surfpert_Watoms*mu_W(j,:)))/W001surfpert_area 
+            W001surfpert_F(i)
             
             Ba4O8W001_gamma(j,:) = ((Ba4O8W001_F(i,:)-(Ba4O8W001_Watoms*mu_W(j,:)...
                 +Ba4O8W001_Baatoms*mu_Ba(j,:)+Ba4O8W001_Oatoms*mu_O(j,:)))/Ba4O8W001_area)+(Temp(i)*Ba4O8W001_config);
@@ -477,11 +492,11 @@ for i = 1
                 mu_W(k,:) = mu_WO3(i,:)- 3*mu_O(k,:);
             end           
       
-            if mu_O(j,:) < Sccutoff(i,:)
-                mu_Sc(j,:) = mu_metSc(i,:);
+            if mu_O(k,:) < Sccutoff(i,:)
+                mu_Sc(k,:) = mu_metSc(i,:);
             else 
-                %mu_Sc(j,:) = mu_metSc(i,:);
-                mu_Sc(j,:) = (mu_Sc2O3(i,:)- 3*mu_O(j,:))/2;
+                %mu_Sc(k,:) = mu_metSc(i,:);
+                mu_Sc(k,:) = (mu_Sc2O3(i,:)- 3*mu_O(k,:))/2;
             end
             
             W110_gamma(k,:) = (W110_F(i,:)-(W110_Watoms*mu_W(k,:)))/W110_area;
