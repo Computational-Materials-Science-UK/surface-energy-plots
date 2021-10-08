@@ -401,7 +401,7 @@ OScW112double_F = OScW112double_F+OScW112double_E0;
 %%%%%%% Plotting %%%%%%%
 
 
-for i = 1  % What does this even do?
+for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
         %%% I think this is the 001 surface energy discovery place %%%
         for j = 1:length(mu_O)
             
@@ -689,33 +689,41 @@ for i = 1  % What does this even do?
         %Shankar's O-Sc-W series slabs
         figure(i+201);
         hold on
-        P21 = plot(mu_O,W001double_gamma,'-rx','LineWidth',2);
+        P21 = plot(mu_O,W001double_gamma,'-r','LineWidth',2);
         L21 = 'Bare W(0 0 1)';
         hold on
-        P22 = plot(mu_O,ScW001double_gamma,'--rx','LineWidth',2);
+        P22 = plot(mu_O,ScW001double_gamma,'--r','LineWidth',2);
         L22 = 'Sc-Covered W(0 0 1)';
         hold on
-        P23 = plot(mu_O,OScW001double_gamma,':rx','LineWidth',2);
+        P23 = plot(mu_O,OScW001double_gamma,':r','LineWidth',2);
         L23 = 'Layered O-Sc-W(0 0 1)';
         hold on
-        P24 = plot(mu_O,W110double_gamma,'-g+','LineWidth',2);
+        P24 = plot(mu_O,W110double_gamma,'-g','LineWidth',2);
         L24 = 'Bare W(0 0 1)';
         hold on
-        P25 = plot(mu_O,ScW110double_gamma,'--g+','LineWidth',2);
+        P25 = plot(mu_O,ScW110double_gamma,'--g','LineWidth',2);
         L25 = 'Sc-Covered W(0 0 1)';
         hold on
-        P26 = plot(mu_O,OScW110double_gamma,':g+','LineWidth',2);
+        P26 = plot(mu_O,OScW110double_gamma,':g','LineWidth',2);
         L26 = 'Layered O-Sc-W(0 0 1)';
         hold on
-        P27 = plot(mu_O,W112double_gamma,'-b*','LineWidth',2);
+        P27 = plot(mu_O,W112double_gamma,'-b','LineWidth',2);
         L27 = 'Bare W(0 0 1)';
         hold on
-        P28 = plot(mu_O,ScW112double_gamma,'--b*','LineWidth',2);
+        P28 = plot(mu_O,ScW112double_gamma,'--b','LineWidth',2);
         L28 = 'Sc-Covered W(0 0 1)';
         hold on
-        P29 = plot(mu_O,OScW112double_gamma,':b*','LineWidth',2);
+        P29 = plot(mu_O,OScW112double_gamma,':b','LineWidth',2);
         L29 = 'Layered O-Sc-W(0 0 1)';
         hold on
+        P30 = plot(mu_O,Sc4W112top_gamma,':y','LineWidth',2);
+        L30 = 'Sc-top/W(1 1 2)';
+        hold on
+        P31 = plot(mu_O,Sc2W112top_gamma,'-y','LineWidth',2);
+        L31 = 'Sc_{0.5}-top/W(1 1 2)';
+        hold on
+        P32 = plot(mu_O,Sc4triW112_gamma,'^y','LineWidth',1.5);
+        L32 = 'Sc-tri/W(1 1 2)';
 
         line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
             'LineWidth', 4, 'LineStyle','-');
@@ -747,7 +755,7 @@ for i = 1  % What does this even do?
         %axes('YColor','none');
         box on;
         %grid on;
-        legend([P21; P22; P23; P24; P25; P26; P27; P28; P29], L21, L22, L23, L24, L25, L26, L27, L28, L29, 'fontsize', 18, ...
+        legend([P21; P22; P23; P24; P25; P26; P27; P28; P29; P30; P31; P32], L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, 'fontsize', 18, ...
             'Location','southoutside');
         legend off;
         txt = {['T = ',num2str(Temp(i,:)),' K']};
