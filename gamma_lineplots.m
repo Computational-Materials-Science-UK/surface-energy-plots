@@ -165,7 +165,26 @@ OScW001double_F = OScW001double_F*convertunit;
 OScW001double_E0 = -2.3987622E+02;
 OScW001double_F = OScW001double_F+OScW001double_E0;
 %Ba-O-Sc-W 001 slab goes here
-
+BaOScW001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
+BaOScW001double_Watoms = 16;
+BaOScW001double_Scatoms = 2;
+BaOScW001double_Oatoms = 2;
+BaOScW001double_Baatoms = 2;
+BaOScW001double_F = readmatrix('thermalprops001-BaOScW-1x1_double.txt');
+BaOScW001double_F = BaOScW001double_F(:,2);
+BaOScW001double_F = BaOScW001double_F*convertunit;
+BaOScW001double_E0 = -2.4095725E+02;
+BaOScW001double_F = BaOScW001double_F+BaOScW001double_E0;
+%Sc-O-W 001 slab
+ScOW001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
+ScOW001double_Watoms = 16;
+ScOW001double_Scatoms = 2;
+ScOW001double_Oatoms = 2;
+ScOW001double_F = readmatrix('thermalprops001-ScOW-1x1_double.txt');
+ScOW001double_F = ScOW001double_F(:,2);
+ScOW001double_F = ScOW001double_F*convertunit;
+ScOW001double_E0 = -2.3987622E+02;
+ScOW001double_F = ScOW001double_F+ScOW001double_E0;
 %%%%%%% (110) %%%%%%%
 
 W110_area = 56.88; 
@@ -239,6 +258,37 @@ OScW110double_F = OScW110double_F*convertunit;
 OScW110double_E0 = -2.1577504E+02;
 OScW110double_F = OScW110double_F+OScW110double_E0;
 %Ba-O-Sc-W 110 slab goes here
+BaOScW110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
+BaOScW110double_Watoms = 12;
+BaOScW110double_Scatoms = 4;
+BaOScW110double_Oatoms = 4;
+BaOScW110double_Baatoms=4;
+BaOScW110double_F = readmatrix('thermalprops110-BaOScW-1x1_double.txt');
+BaOScW110double_F = BaOScW110double_F(:,2);
+BaOScW110double_F = BaOScW110double_F*convertunit;
+BaOScW110double_E0 = -2.2482369E+02;
+BaOScW110double_F = BaOScW110double_F+BaOScW110double_E0;
+%Sc-O-W 110 slab
+ScOW110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
+ScOW110double_Watoms = 12;
+ScOW110double_Scatoms = 4;
+ScOW110double_Oatoms = 4;
+ScOW110double_F = readmatrix('thermalprops110-ScOW-1x1_double.txt');
+ScOW110double_F = ScOW110double_F(:,2);
+ScOW110double_F = ScOW110double_F*convertunit;
+ScOW110double_E0 = -2.1577503E+02;
+ScOW110double_F = ScOW110double_F+ScOW110double_E0;
+%3O-2Sc-W 110 slab
+O3Sc2W110double_area = 28.61753414; %Area in angstroms^2. 
+O3Sc2W110double_Watoms = 12;
+O3Sc2W110double_Scatoms = 4;
+O3Sc2W110double_Oatoms = 6;
+O3Sc2W110double_F = readmatrix('thermalprops110-O3Sc2W-1x1_double.txt');
+O3Sc2W110double_F = O3Sc2W110double_F(:,2);
+O3Sc2W110double_F = O3Sc2W110double_F*convertunit;
+O3Sc2W110double_E0 = -.23253415E+03;
+O3Sc2W110double_F = O3Sc2W110double_F+O3Sc2W110double_E0;
+
 
 %%%%%%% (112) %%%%%%%
 
@@ -397,6 +447,36 @@ OScW112double_F = OScW112double_F*convertunit;
 OScW112double_E0 = -3.4242413E+02;
 OScW112double_F = OScW112double_F+OScW112double_E0;
 %Ba-O-Sc-W 110 slab goes here
+BaOScW112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
+BaOScW112double_Watoms = 22;
+BaOScW112double_Scatoms = 4;
+BaOScW112double_Oatoms = 4;
+BaOScW112double_Baatoms = 4;
+BaOScW112double_F = readmatrix('thermalprops112-BaOScW-1x1_double.txt');
+BaOScW112double_F = BaOScW112double_F(:,2);
+BaOScW112double_F = BaOScW112double_F*convertunit;
+BaOScW112double_E0 = -3.5455272E+02;
+BaOScW112double_F = BaOScW112double_F+BaOScW112double_E0;
+%Sc-O-W 112 slab
+ScOW112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
+ScOW112double_Watoms = 22;
+ScOW112double_Scatoms = 4;
+ScOW112double_Oatoms = 4;
+ScOW112double_F = readmatrix('thermalprops112-ScOW-1x1_double.txt');
+ScOW112double_F = ScOW112double_F(:,2);
+ScOW112double_F = ScOW112double_F*convertunit;
+ScOW112double_E0 = -3.4375551E+02;
+ScOW112double_F = ScOW112double_F+ScOW112double_E0;
+%O3-Sc2-W 112 slab
+O3Sc2W112double_area = 50.11848623; %Area in angstroms^2.  This may not be the right units 
+O3Sc2W112double_Watoms = 22;
+O3Sc2W112double_Scatoms = 4;
+O3Sc2W112double_Oatoms = 6;
+O3Sc2W112double_F = readmatrix('thermalprops112-O3Sc2W-1x1_double.txt');
+O3Sc2W112double_F = O3Sc2W112double_F(:,2);
+O3Sc2W112double_F = O3Sc2W112double_F*convertunit;
+O3Sc2W112double_E0 = -.36175427E+03;
+O3Sc2W112double_F = O3Sc2W112double_F+O3Sc2W112double_E0;
 
 %%%%%%% Plotting %%%%%%%
 
@@ -450,6 +530,12 @@ for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
             
             OScW001double_gamma(j,:) = ((OScW001double_F(i,:)-(OScW001double_Watoms*mu_W(j,:)...
                 +OScW001double_Scatoms*mu_Sc(j,:)+OScW001double_Oatoms*mu_O(j,:)))/OScW001double_area);
+            
+            BaOScW001double_gamma(j,:) = ((BaOScW001double_F(i,:)-(BaOScW001double_Watoms*mu_W(j,:)...
+                +BaOScW001double_Scatoms*mu_Sc(j,:)+BaOScW001double_Oatoms*mu_O(j,:)+BaOScW001double_Baatoms*mu_Ba(j,:)))/BaOScW001double_area);
+            
+            ScOW001double_gamma(j,:) = ((ScOW001double_F(i,:)-(ScOW001double_Watoms*mu_W(j,:)...
+                +ScOW001double_Scatoms*mu_Sc(j,:)+ScOW001double_Oatoms*mu_O(j,:)))/ScOW001double_area);
            
         end
         
@@ -497,6 +583,15 @@ for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
             
             OScW110double_gamma(k,:) = ((OScW110double_F(i,:)-(OScW110double_Watoms*mu_W(k,:)...
                 +OScW110double_Scatoms*mu_Sc(k,:)+OScW110double_Oatoms*mu_O(k,:)))/OScW110double_area);
+            
+            BaOScW110double_gamma(k,:) = ((BaOScW110double_F(i,:)-(BaOScW110double_Watoms*mu_W(k,:)...
+                +BaOScW110double_Scatoms*mu_Sc(k,:)+BaOScW110double_Oatoms*mu_O(k,:)+BaOScW110double_Baatoms*mu_Ba(k,:)))/BaOScW110double_area);
+            
+            ScOW110double_gamma(k,:) = ((ScOW110double_F(i,:)-(ScOW110double_Watoms*mu_W(k,:)...
+                +ScOW110double_Scatoms*mu_Sc(k,:)+ScOW110double_Oatoms*mu_O(k,:)))/ScOW110double_area);
+            
+            O3Sc2W110double_gamma(k,:) = ((O3Sc2W110double_F(i,:)-(O3Sc2W110double_Watoms*mu_W(k,:)...
+                +O3Sc2W110double_Scatoms*mu_Sc(k,:)+O3Sc2W110double_Oatoms*mu_O(k,:)))/O3Sc2W110double_area);
         end
         
         for n = 1:length(mu_O)
@@ -568,6 +663,15 @@ for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
             
             OScW112double_gamma(n,:) = ((OScW112double_F(i,:)-(OScW112double_Watoms*mu_W(n,:)...
                 +OScW112double_Scatoms*mu_Sc(n,:)+OScW112double_Oatoms*mu_O(n,:)))/OScW112double_area);
+            
+            BaOScW112double_gamma(n,:) = ((BaOScW112double_F(i,:)-(BaOScW112double_Watoms*mu_W(n,:)...
+                +BaOScW112double_Scatoms*mu_Sc(n,:)+BaOScW112double_Oatoms*mu_O(n,:)+BaOScW112double_Baatoms*mu_Ba(n,:)))/BaOScW112double_area);
+            
+            ScOW112double_gamma(n,:) = ((ScOW112double_F(i,:)-(ScOW112double_Watoms*mu_W(n,:)...
+                +ScOW112double_Scatoms*mu_Sc(n,:)+ScOW112double_Oatoms*mu_O(n,:)))/ScOW112double_area);
+            
+            O3Sc2W112double_gamma(n,:) = ((O3Sc2W112double_F(i,:)-(O3Sc2W112double_Watoms*mu_W(n,:)...
+                +O3Sc2W112double_Scatoms*mu_Sc(n,:)+O3Sc2W112double_Oatoms*mu_O(n,:)))/O3Sc2W112double_area);
                   
         end
         
@@ -684,6 +788,7 @@ for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
         text(-11.75,0.05,txt,'fontsize', 35);
         set(gcf, 'Position',  [0, 0, 1500, 800]);
         saveas(gcf,['allcalculatedsurfaces_t',num2str(Temp(i,:)),'.png']);
+        %movefile(['allcalculatedsurfaces_t',num2str(Temp(i,:)),'.png'], 'Mujan_Images');
 
 
         %Shankar's O-Sc-W series slabs
@@ -698,32 +803,48 @@ for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
         P23 = plot(mu_O,OScW001double_gamma,':r','LineWidth',2);
         L23 = 'Layered O-Sc-W(0 0 1)';
         hold on
-        P24 = plot(mu_O,W110double_gamma,'-g','LineWidth',2);
-        L24 = 'Bare W(0 0 1)';
+        P24 = plot(mu_O,BaOScW001double_gamma,'-or','LineWidth',2);
+        L24 = 'Layered Ba-O-Sc-W(0 0 1)';
         hold on
-        P25 = plot(mu_O,ScW110double_gamma,'--g','LineWidth',2);
-        L25 = 'Sc-Covered W(0 0 1)';
+        P25 = plot(mu_O,ScOW001double_gamma,'-.r','LineWidth',2);
+        L25 = 'Layered Sc-O-W(0 0 1)';
         hold on
-        P26 = plot(mu_O,OScW110double_gamma,':g','LineWidth',2);
-        L26 = 'Layered O-Sc-W(0 0 1)';
+        P26 = plot(mu_O,W110double_gamma,'-g','LineWidth',2);
+        L26 = 'Bare W(0 0 1)';
         hold on
-        P27 = plot(mu_O,W112double_gamma,'-b','LineWidth',2);
-        L27 = 'Bare W(0 0 1)';
+        P27 = plot(mu_O,ScW110double_gamma,'--g','LineWidth',2);
+        L27 = 'Sc-Covered W(1 1 0)';
         hold on
-        P28 = plot(mu_O,ScW112double_gamma,'--b','LineWidth',2);
-        L28 = 'Sc-Covered W(0 0 1)';
+        P28 = plot(mu_O,OScW110double_gamma,':g','LineWidth',2);
+        L28 = 'Layered O-Sc-W(1 1 0)';
         hold on
-        P29 = plot(mu_O,OScW112double_gamma,':b','LineWidth',2);
-        L29 = 'Layered O-Sc-W(0 0 1)';
+        P29 = plot(mu_O,BaOScW110double_gamma,'-og','LineWidth',2);
+        L29 = 'Layered Ba-O-Sc-W(1 1 0)';
         hold on
-        P30 = plot(mu_O,Sc4W112top_gamma,':y','LineWidth',2);
-        L30 = 'Sc-top/W(1 1 2)';
+        P30 = plot(mu_O,ScOW110double_gamma,'-.g','LineWidth',2);
+        L30 = 'Layered Sc-O-W(1 1 0)';
         hold on
-        P31 = plot(mu_O,Sc2W112top_gamma,'-y','LineWidth',2);
-        L31 = 'Sc_{0.5}-top/W(1 1 2)';
+        P31 = plot(mu_O,O3Sc2W110double_gamma,'+g','LineWidth',2);
+        L31 = 'Layered O3-Sc2-W(1 1 0)';
         hold on
-        P32 = plot(mu_O,Sc4triW112_gamma,'^y','LineWidth',1.5);
-        L32 = 'Sc-tri/W(1 1 2)';
+        P32 = plot(mu_O,W112double_gamma,'-b','LineWidth',2);
+        L32 = 'Bare W(1 1 2)';
+        hold on
+        P33 = plot(mu_O,ScW112double_gamma,'--b','LineWidth',2);
+        L33 = 'Sc-Covered W(1 1 2)';
+        hold on
+        P34 = plot(mu_O,OScW112double_gamma,':b','LineWidth',2);
+        L34 = 'Layered O-Sc-W(1 1 2)';
+        hold on
+        P35 = plot(mu_O,BaOScW112double_gamma,'-ob','LineWidth',2);
+        L35 = 'Layered Ba-O-Sc-W(1 1 2)';
+        hold on
+        P36 = plot(mu_O,ScOW112double_gamma,'-.b','LineWidth',2);
+        L36 = 'Layered Sc-O-W(1 1 2)';
+        hold on
+        P37 = plot(mu_O,O3Sc2W112double_gamma,'+b','LineWidth',2);
+        L37 = 'Layered O3-Sc2-W(1 1 2)';
+        hold on
 
         line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
             'LineWidth', 4, 'LineStyle','-');
@@ -755,13 +876,14 @@ for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
         %axes('YColor','none');
         box on;
         %grid on;
-        legend([P21; P22; P23; P24; P25; P26; P27; P28; P29; P30; P31; P32], L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, 'fontsize', 18, ...
+        legend([P21; P22; P23; P24; P25; P26; P27; P28; P29; P30; P31; P32; P33; P34; P35; P36; P37], L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, L33, L34, L35, L36, L37, 'fontsize', 18, ...
             'Location','southoutside');
         legend off;
         txt = {['T = ',num2str(Temp(i,:)),' K']};
         text(-11.75,0.05,txt,'fontsize', 35);
         set(gcf, 'Position',  [0, 0, 1500, 800]);
         saveas(gcf,['Shankarssurfaces_t',num2str(Temp(i,:)),'.png']);
+        %movefile(['Shankarssurfaces_t',num2str(Temp(i,:)),'.png'], 'Shankar_Images');
 
       
 end
