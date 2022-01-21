@@ -342,8 +342,8 @@ Ba2O4Sc4W112_E0 = -.55767079E+03;
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
 Ba2O4Sc4W112_WF = 1.92933196;
 
-ii=1;
-lowerboundshapegammas = zeros(ii,4);
+%ii=1;
+%lowerboundshapegammas = zeros(ii,4);
 pp=1;
 allSEs=zeros(pp,9);
 
@@ -351,7 +351,7 @@ allSEs=zeros(pp,9);
 for i = 1:aa
      
     lowestgammas = zeros(cc,3);
-    SE_mu_O = plotmu_O(i);
+    SE_mu_O = plotmu_O(i,:);
     Ba_O = false;
     W_O = false;
     Sc_O = false;
@@ -591,114 +591,34 @@ for i = 1:aa
             
           if (ratio_W001_W110>lowSEbound001) && (ratio_W001_W110<highSEbound001) ...
                   && (ratio_W112_W110>lowSEbound112) && (ratio_W112_W110<highSEbound112)
-              lowerboundshapegammas(ii) = [Temp(i); P_torr(j); ratio_W001_W110; ...
-                  ratio_W112_W110];
-              ii = ii+1;
+                if exist('lowerboundshapegammas','var')
+                    lowerboundshapegammas=[lowerboundshapegammas;...
+                    [Temp(i), P_torr(j), ratio_W001_W110, ...
+                    ratio_W112_W110]];
+                else
+                    lowerboundshapegammas=[Temp(i), P_torr(j), ratio_W001_W110, ...
+                    ratio_W112_W110];
+                end
           end
           
-           
-    
+          %}
+            
     end  
     
         
-%{        
-        %P is plot, L is label
-        figure(i);
-        hold on
-        P1 = plot(mu_O,Ba4O8W001_gamma,'-.r','LineWidth',4);
-        L1 = 'Ba_{0.50}O-top/W(0 0 1)';
-        hold on
-        P2 = plot(mu_O,Ba2O8W110_gamma,'-.b','LineWidth',4);
-        L2 = 'Ba_{0.25}O-tri/W(1 1 0)';
-        hold on
-        P3 = plot(mu_O,Ba2O4W112_2x2_gamma,'-.g','LineWidth',4);
-        L3 = 'Ba_{0.50}O-top/W(1 1 2)';
-        hold on
-        P4 = plot(mu_O,O8W001_gamma,':r','LineWidth',4);
-        L4 = 'O-top/W(0 0 1)';
-        hold on
-        P5 = plot(mu_O,O8W110_gamma,':b','LineWidth',4);
-        L5 = 'O-tri/W(1 1 0)';
-        hold on
-        P6 = plot(mu_O,O4W112_gamma,':g','LineWidth',4);
-        L6 = 'O-top/W(1 1 2)';
-        hold on
-        P7 = yline(W001surfpert_gamma(i), 'r', 'LineWidth',4);
-        L7 = 'Bare W(0 0 1)';
-        hold on
-        P8 = yline(W110_gamma(i), 'b', 'LineWidth',4);
-        L8 = 'Bare W(1 1 0)';
-        hold on
-        P9 = yline(W112_gamma(i), 'g', 'LineWidth',4);
-        L9 = 'Bare W(1 1 2)';
-        hold on
-        P10 = plot(mu_O,Ba2Sc2O8W001_gamma,'-<r','LineWidth',4);
-        L10 = 'Ba_{0.25}Sc_{0.25}O-top/W(0 0 1)';
-        hold on
-        P11 = plot(mu_O,Ba2Sc2O8W110_gamma,'-<b','LineWidth',4);
-        L11 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 0)';
-        hold on
-        P12 = plot(mu_O,Ba1Sc1O4W112_gamma,'-<g','LineWidth',4);
-        L12 = 'Ba_{0.25}Sc_{0.25}O-top/W(1 1 2)';
-        hold on
-%         P13 = plot(mu_O,Ba2Sc2O4W112_gamma,'-+g','LineWidth',2);
-%         L13 = 'Ba_{0.5}Sc_{0.5}O-top/W(1 1 2)';
-%         hold on
-%         P14 = plot(mu_O,Ba2Sc2O6W112_gamma,'-sg','LineWidth',2);
-%         L14 = '(BaSc)_{1/3} O-top/W(1 1 2)';
-%         hold on
 
-        line([Wcutoff(i) Wcutoff(i)], [-10 0.7],'Color','c', ...
-            'LineWidth', 3, 'LineStyle','-');
-        text([Wcutoff(i) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
-        hold on
-        text([Wcutoff(i) - 0.2], 0.05, 'W','fontsize', 28, 'Color', 'c');
-        hold on
-        
-        line([Bacutoff(i) Bacutoff(i)], [-10 0.7],'Color','m', ...
-            'LineWidth', 3, 'LineStyle','-');
-        text([Bacutoff(i) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
-        hold on
-        text([Bacutoff(i) - 0.2], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
-        
-        line([Sccutoff(i) Sccutoff(i)], [-10 0.7],'Color','k', ...
-            'LineWidth', 3, 'LineStyle','-');
-        text([Sccutoff(i) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
-        hold on
-        text([Sccutoff(i) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
-        
-       
-        hold off;
-        set(gca,'FontSize',32);
-        xlabel({'\mu_O (eV)'},'fontsize', 32);
-        ylabel({'Surface Energy (eV/Ang.^2)'},'fontsize', 32);
-        axis([-12 -6.5 0 0.6])
-        ax = gca;
-        ax.LineWidth = 4;
-        %axes('YColor','none');
-        box on;
-        %grid on;
-        legend([P1; P2; P3; P4; P5; P6; P7; P8; P9; P10; P11; P12], L1, L2, L3, L4, L5, L6, ...
-            L7, L8, L9, L10, L11, L12, 'fontsize', 18, 'Location','northeast','NumColumns',4);
-        legend boxon;
-        txt = {['T = ',num2str(Temp(i)),' K']};
-        text(-7.55,0.105,txt,'fontsize', 35);
-        set(gcf, 'Position',  [0, 0, 1500, 800]);
-        saveas(gcf,['cathodesurfpaper_t',num2str(Temp(i)),'.png']);
-       %}
-    
 end
 
 save('data.mat','allSEs');
 save('allSEs.mat','allSEs');
 
-%{
+
 allSEs(:,10) = areafrac(:,1);
 allSEs(:,11) = areafrac(:,2);
 allSEs(:,12) = areafrac(:,3);
-%}
-%points = [1500 1.00E-40 4.556;1500 5.72E-25 1.215;1500 1.63E-19 1.221;...
-%    1500 2.85E-15 1.266;1350 2.85E-15 2.653];
+
+points = [1500 1.00E-40 4.556;1500 5.72E-25 1.215;1500 1.63E-19 1.221;...
+    1500 2.85E-15 1.266;1350 2.85E-15 2.653];
 
 figure
 contourf(P_torr,Temp,plotmu_O,100,'LineColor','none')
@@ -722,8 +642,8 @@ semilogx(s(57:aa,2),s(57:aa,1),'LineWidth',3,'color','cyan') %W cutoff
 hold on
 semilogx(z(101:aa,2),z(101:aa,1),'LineWidth',3,'color','black') %Sc cutoff
 hold on
-%semilogx(points(:,2),points(:,1),'.',...
-%    'color','k','MarkerSize',12);
+semilogx(points(:,2),points(:,1),'.',...
+    'color','k','MarkerSize',12);
 ax.LineWidth = 3;
 box on
 xlim([1E-50 1])
@@ -731,78 +651,5 @@ set(gcf, 'Position',  [0, 0, 1500, 800]);
 saveas(gcf,['muocontour.png']);
 %}
 
-%{
-
-for i = 1:(pp-1)
-    
-    W001WF = allSEs(i,7);
-    W110WF = allSEs(i,8);
-    W112WF = allSEs(i,9);
-    W001AF = allSEs(i,10);
-    W110AF = allSEs(i,11);
-    W112AF = allSEs(i,12);
-    beta = 8.61733E-5*allSEs(i,1);
-    
-    effectiveWF = -1*beta*log((W001AF*exp(-1*...
-        W001WF/beta))+(W110AF*exp(-1*W110WF/beta))...
-        +(W112AF*exp(-1*W112WF/beta)));
-    allSEs(i,13) = effectiveWF;
-    
-    
-end
-    
-effWFlist = reshape(allSEs(:,13),[166, 201]);
-effWFlist = transpose(effWFlist);
-
-points = [1500 1.00E-40 4.556;1500 5.72E-25 1.215;1500 1.63E-19 1.221;...
-    1500 2.85E-15 1.266;1350 2.85E-15 2.653];
-
-figure
-contourf(P_torr,Temp,effWFlist,1000,'LineColor','none')
-colorbar
-h = colorbar;
-set(get(h,'label'),'string','\phi_{eff} (eV)','FontName','Tahoma','FontSize',28);
-xlabel({'P_{O_2} (Torr)'},'FontSize',28);
-ylabel({'Temperature (K)'},'FontSize',28);
-set(gca,'XScale','log','FontSize',28,'FontName','Tahoma');
-ax = gca;
-ax.LineWidth = 3;
-box on
-hold on
-semilogx(lowerboundshapegammas(:,2),lowerboundshapegammas(:,1),'.',...
-    'color',[128/255 128/255 128/255],'MarkerSize',14);
-hold on
-semilogx(r(89:aa,2),r(89:aa,1),'LineWidth',3,'color','magenta') %Ba cutoff
-hold on
-semilogx(s(57:aa,2),s(57:aa,1),'LineWidth',3,'color','cyan') %W cutoff
-hold on
-semilogx(z(101:aa,2),z(101:aa,1),'LineWidth',3,'color','black') %Sc cutoff
-hold on
-%semilogx(points(:,2),points(:,1),'.',...
-%    'color','k','MarkerSize',12);
-ax.LineWidth = 3;
-box on
-xlim([1E-50 1])
-set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
-set(gcf, 'Position',  [0, 0, 1500, 800]);
-saveas(gcf,['workfunctioncontour.png']);
-%}
-
-%{
-figure
-scatter3(allSEs(:,2),allSEs(:,1),allSEs(:,13),[],allSEs(:,13),'filled')
-hold on
-%scatter3(points(:,2),points(:,1),points(:,3))
-%colorbar
-xlabel({'P_{O_2} (Torr)'},'fontsize', 28);
-ylabel({'Temperature (K)'},'fontsize', 28);
-zlabel({'\phi_{eff} (eV)'},'fontsize', 28);
-grid off
-ax = gca;
-ax.LineWidth = 3;
-xlim([1E-50 1])
-set(gca,'XScale','log','FontSize',28,'FontName','Tahoma');
-set(groot,{'DefaultAxesXColor','DefaultAxesYColor','DefaultAxesZColor'},{'k','k','k'})
-%}
 
 %close all
