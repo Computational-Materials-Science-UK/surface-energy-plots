@@ -124,7 +124,6 @@ Ba2O8W001_F = Ba2O8W001_F(:,2);
 Ba2O8W001_F = Ba2O8W001_F*convertunit;
 Ba2O8W001_E0 = -.73520456E+03;
 Ba2O8W001_F = Ba2O8W001_F+Ba2O8W001_E0;
-<<<<<<< HEAD
 
 %%% Shankar's 1x1 001 Slabs %%%
 %Bare 001 W slab
@@ -175,6 +174,24 @@ ScOW001double_F = ScOW001double_F(:,2);
 ScOW001double_F = ScOW001double_F*convertunit;
 ScOW001double_E0 = -2.3987622E+02;
 ScOW001double_F = ScOW001double_F+ScOW001double_E0;
+%2-layer Sc Covered 001 W slab
+Sc2W001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
+Sc2W001double_Watoms = 16;
+Sc2W001double_Scatoms = 4;
+Sc2W001double_F = readmatrix('thermalprops001-Sc2W-1x1_double.txt');
+Sc2W001double_F = Sc2W001double_F(:,2);
+Sc2W001double_F = Sc2W001double_F*convertunit;
+Sc2W001double_E0 = -2.3016138E+02;
+Sc2W001double_F = Sc2W001double_F+Sc2W001double_E0;
+%3-layer Sc Covered 001 W slab
+Sc3W001double_area = 20.12316713; %Area in angstroms^2.  This may not be the right units 
+Sc3W001double_Watoms = 16;
+Sc3W001double_Scatoms = 6;
+Sc3W001double_F = readmatrix('thermalprops001-Sc3W-1x1_double.txt');
+Sc3W001double_F = Sc3W001double_F(:,2);
+Sc3W001double_F = Sc3W001double_F*convertunit;
+Sc3W001double_E0 = -2.4305146E+02;
+Sc3W001double_F = Sc3W001double_F+Sc3W001double_E0;
 
 %%% Shankar's 2x2 001 Slabs %%%
 %Bare 001 W slab
@@ -226,9 +243,7 @@ ScOW001double2_F = ScOW001double2_F*convertunit;
 ScOW001double2_E0 = 4*-2.3987622E+02;
 ScOW001double2_F = ScOW001double2_F+ScOW001double2_E0;
 
-=======
 Ba2O8W001_WF = 1.23;
->>>>>>> eccc80fb8bbb86be06b01c189e2d0eb3b8d9f6be
 
 %%%%%%% (110) %%%%%%%
 
@@ -276,7 +291,6 @@ Ba2Sc2O8W110_E0 = -.54556299E+03;
 Ba2Sc2O8W110_F = Ba2Sc2O8W110_F+Ba2Sc2O8W110_E0;
 Ba2Sc2O8W110_WF = 2.47;
 
-<<<<<<< HEAD
 %%% Shankar's 1x1 110 Slabs %%%
 %Bare 110 W slab
 W110double_area = 28.61753414; %Area in angstroms^2.  This may not be the right units 
@@ -345,8 +359,6 @@ ScW110double2_F = ScW110double2_F(:,2);
 ScW110double2_F = ScW110double2_F*convertunit;
 ScW110double2_E0 = -7.0608688E+02;
 ScW110double2_F = ScW110double2_F+ScW110double2_E0;
-=======
->>>>>>> eccc80fb8bbb86be06b01c189e2d0eb3b8d9f6be
 
 %%%%%%% (112) %%%%%%%
 
@@ -483,7 +495,6 @@ Ba2O4Sc4W112_F = Ba2O4Sc4W112_F(:,2);
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F*convertunit;
 Ba2O4Sc4W112_E0 = -.55767079E+03;
 Ba2O4Sc4W112_F = Ba2O4Sc4W112_F+Ba2O4Sc4W112_E0;
-<<<<<<< HEAD
 
 %%% Shankar's 1x1 112 Slabs %%%
 %Bare 112 W slab
@@ -553,20 +564,13 @@ ScW112double2_F = ScW112double2_F(:,2);
 ScW112double2_F = ScW112double2_F*convertunit;
 ScW112double2_E0 = -1.2154063E+03;
 ScW112double2_F = ScW112double2_F+ScW112double2_E0;
-=======
 Ba2O4Sc4W112_WF = 1.92933196;
->>>>>>> eccc80fb8bbb86be06b01c189e2d0eb3b8d9f6be
 
 %%%%%%% Plotting %%%%%%%
 
 
-<<<<<<< HEAD
 for i = 1:length(Temp)  % Loop through temperatures.  Turn off for debuging
         %%% I think this is the 001 surface energy discovery place %%%
-=======
-for i = 1
-        
->>>>>>> eccc80fb8bbb86be06b01c189e2d0eb3b8d9f6be
         for j = 1:length(mu_O)
             
             if mu_O(j,:)< Bacutoff(i,:)
@@ -621,6 +625,12 @@ for i = 1
             ScOW001double_gamma(j,:) = ((ScOW001double_F(i,:)-(ScOW001double_Watoms*mu_W(j,:)...
                 +ScOW001double_Scatoms*mu_Sc(j,:)+ScOW001double_Oatoms*mu_O(j,:)))/ScOW001double_area);
             
+            Sc2W001double_gamma(j,:) = (Sc2W001double_F(i,:)-(Sc2W001double_Watoms*mu_W(j,:)...
+                +Sc2W001double_Scatoms*mu_Sc(j,:)))/Sc2W001double_area;
+            
+            Sc3W001double_gamma(j,:) = (Sc3W001double_F(i,:)-(Sc3W001double_Watoms*mu_W(j,:)...
+                +Sc3W001double_Scatoms*mu_Sc(j,:)))/Sc3W001double_area;
+            
             %Shankar's 2x2 001 W Slabs
             W001double2_gamma(j,:) = (W001double2_F(i,:)-(W001double2_Watoms*mu_W(j,:)))/W001double2_area;
             
@@ -636,6 +646,10 @@ for i = 1
             ScOW001double2_gamma(j,:) = ((ScOW001double2_F(i,:)-(ScOW001double2_Watoms*mu_W(j,:)...
                 +ScOW001double2_Scatoms*mu_Sc(j,:)+ScOW001double2_Oatoms*mu_O(j,:)))/ScOW001double2_area);
            
+            %%%%%%%%%%%%%%%% Shankar's Other Calulations %%%%%%%%%%%%%%%%
+            ScfromScW001double(j,:) = (ScW001double_F(i,:)-W001double_F(i,:))/ScW001double_Scatoms;
+            ScfromSc2W001double(j,:) = (Sc2W001double_F(i,:)-ScW001double_F(i,:))/ScW001double_Scatoms;
+            ScfromSc3W001double(j,:) = (Sc3W001double_F(i,:)-Sc2W001double_F(i,:))/ScW001double_Scatoms;
         end
         
         %%% Here's the 110 Section %%%
@@ -1065,7 +1079,114 @@ for i = 1
         saveas(gcf,['Shankars2x2Comparison_t',num2str(Temp(i,:)),'.png']);
         %movefile(['Shankars2x2Comparison_t',num2str(Temp(i,:)),'.png'], 'Shankar_Images');
 
-      
+      %%%%%%%%%%%Shankar's Layered Scandium Phonon Comparison%%%%%%%%%%%%%
+        figure(i+603);
+        hold on
+        P50 = plot(mu_O,ScW001double_gamma,'--r','LineWidth',2);
+        L50 = 'Single Layer';
+        hold on
+        P51 = plot(mu_O,Sc2W001double_gamma,'--g','LineWidth',2);
+        L51 = 'Double Layer';
+        hold on
+        P52 = plot(mu_O,Sc3W001double_gamma,'--b','LineWidth',2);
+        L52 = 'Triple Layer';
+        hold on
+        
+
+        line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
+            'LineWidth', 4, 'LineStyle','-');
+%         text([Wcutoff(i,:) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
+%         hold on
+%         text([Wcutoff(i,:) - 0.3], 0.05, 'W','fontsize', 28, 'Color', 'c');
+%         hold on
+%         
+        line([Bacutoff(i,:) Bacutoff(i,:)], [-10 0.7],'Color','m', ...
+            'LineWidth', 4, 'LineStyle','-');
+%         text([Bacutoff(i,:) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
+%         hold on
+%         text([Bacutoff(i,:) - 0.3], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
+%         
+         line([Sccutoff(i,:) Sccutoff(i,:)], [-10 0.7],'Color','k', ...
+             'LineWidth', 4, 'LineStyle','-');
+%         text([Sccutoff(i,:) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
+%         hold on
+%         text([Sccutoff(i,:) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
+%         
+       
+        hold off;
+        set(gca,'FontSize',28,'FontName','Tahoma');
+        xlabel({'\mu_O (eV)'},'fontsize', 32);
+        ylabel({'Surface Energy (eV/Ang.^2)'},'fontsize', 32);
+        axis([-12 -7.5 0 0.6])
+        ax = gca;
+        ax.LineWidth = 4;
+        %axes('YColor','none');
+        box on;
+        %grid on;
+        legend([P50; P51; P52], L50, L51, L52, 'fontsize', 18, ...
+            'Location','southoutside');
+        legend off;
+        txt = {['T = ',num2str(Temp(i,:)),' K']};
+        text(-11.75,0.05,txt,'fontsize', 35);
+        set(gcf, 'Position',  [0, 0, 1500, 800]);
+        saveas(gcf,['ShankarsScLayersComparison_t',num2str(Temp(i,:)),'.png']);
+        %movefile(['Shankars2x2Comparison_t',num2str(Temp(i,:)),'.png'], 'Shankar_Images');
+        
+        %%%%%%%%%%%Shankar's Layered Scandium Per-Sc Atom Energy Comparison%%%%%%%%%%%%%
+        figure(i+804);
+        hold on
+        P53 = plot(mu_O,ScfromScW001double,'--r','LineWidth',2);
+        L53 = 'Single Layer';
+        hold on
+        P54 = plot(mu_O,ScfromSc2W001double,'--g','LineWidth',2);
+        L54 = 'Double Layer';
+        hold on
+        P55 = plot(mu_O,ScfromSc3W001double,'--b','LineWidth',2);
+        L55 = 'Triple Layer';
+        hold on
+        P56 = plot(mu_O, mu_Sc,'--k','LineWidth',2);
+        L56 = 'Metal/Oxide Bulk';
+        hold on
+
+        line([Wcutoff(i,:) Wcutoff(i,:)], [-10 0.7],'Color','c', ...
+            'LineWidth', 4, 'LineStyle','-');
+%         text([Wcutoff(i,:) + 0.05], 0.05, 'WO_3','fontsize', 28, 'Color', 'c');
+%         hold on
+%         text([Wcutoff(i,:) - 0.3], 0.05, 'W','fontsize', 28, 'Color', 'c');
+%         hold on
+%         
+        line([Bacutoff(i,:) Bacutoff(i,:)], [-10 0.7],'Color','m', ...
+            'LineWidth', 4, 'LineStyle','-');
+%         text([Bacutoff(i,:) + 0.05], 0.05, 'BaO','fontsize', 28, 'Color', 'm');
+%         hold on
+%         text([Bacutoff(i,:) - 0.3], 0.05, 'Ba','fontsize', 28, 'Color', 'm');
+%         
+         line([Sccutoff(i,:) Sccutoff(i,:)], [-10 0.7],'Color','k', ...
+             'LineWidth', 4, 'LineStyle','-');
+%         text([Sccutoff(i,:) + 0.05], 0.05, 'Sc_2O_3','fontsize', 24, 'Color', 'k');
+%         hold on
+%         text([Sccutoff(i,:) - 0.2], 0.05, 'Sc','fontsize', 24, 'Color', 'k');
+%         
+       
+        hold off;
+        set(gca,'FontSize',28,'FontName','Tahoma');
+        xlabel({'\mu_O (eV)'},'fontsize', 32);
+        ylabel({'Sc Energy (eV)'},'fontsize', 32);
+        %axis([-12 -7.5 0 0.6])
+        ax = gca;
+        ax.LineWidth = 4;
+        %axes('YColor','none');
+        box on;
+        %grid on;
+        legend([P53; P54; P55; P56], L53, L54, L55, L56, 'fontsize', 18, ...
+            'Location','southoutside');
+        legend off;
+        txt = {['T = ',num2str(Temp(i,:)),' K']};
+        text(-11.75,0.05,txt,'fontsize', 35);
+        set(gcf, 'Position',  [0, 0, 1500, 800]);
+        saveas(gcf,['ShankarsScAtomEnergyComparison_t',num2str(Temp(i,:)),'.png']);
+        %movefile(['ShankarsScAtomEnergyComparison_t',num2str(Temp(i,:)),'.png'], 'Shankar_Images');
+
 end
 
 function [F, mu] = ReadFromFile(numunits, sourcefile, E0)
